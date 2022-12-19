@@ -9,7 +9,7 @@ import {
 } from "react-icons/ai";
 import { FaRegBookmark, FaBookmark } from "react-icons/fa";
 import { BsFillPencilFill, BsFacebook } from "react-icons/bs";
-import "./Icon.css";
+import "./style.css";
 
 const sizeOpj = {
   small: '16px',

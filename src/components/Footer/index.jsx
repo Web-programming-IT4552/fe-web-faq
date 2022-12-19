@@ -1,7 +1,7 @@
 import React from "react";
-import "./Footer.css";
-import Heading from "../Heading/Heading";
-import Icon from "../Icon/Icon";
+import "./style.css";
+import Heading from "../Heading";
+import Icon from "../Icon";
 
 import imgGooglePlay from "../../assets/google.png";
 import imgAppStore from "../../assets/appstore.png";

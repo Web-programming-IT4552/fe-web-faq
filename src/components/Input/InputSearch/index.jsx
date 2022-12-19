@@ -1,6 +1,6 @@
 import React from "react";
 import { FcSearch } from "react-icons/fc";
-import "./InputSearch.css";
+import "./style.css";
 
 export default function () {
  return (
