@@ -1,6 +1,6 @@
 import React from "react";
 import avatarAlt from "../../assets/profile.png";
-import "./Avatar.css";
+import "./style.css";
 function Avatar({ margin, size }) {
   return (
     <div style={{ margin: margin }} className={`faq-avatar faq-avatar--${size}`} >

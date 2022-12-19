@@ -1,11 +1,11 @@
 import './App.css';
-import Header from "./components/Header/Header";
+import Header from "./components/Header";
 import banner from "./assets/clay-banks-hwLAI5lRhdM-unsplash.jpg";
-import PostOverview from "./components/Post/PostOverview";
-import Navbar from "./components/Navbar/Navbar";
-import Footer from "./components/Footer/Footer";
-import NewestQuestion from "./components/NewestQuestion/NewestQuestion";
-import Heading from "./components/Heading/Heading";
+import PostOverview from "./components/Post";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import NewestQuestion from "./components/NewestQuestion";
+import Heading from "./components/Heading";
 function App() {
   return (
     <div className="App">

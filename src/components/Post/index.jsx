@@ -1,7 +1,7 @@
 import React, {useState} from "react";
-import "./PostOverview.css";
-import Avatar from "../Avatar/Avatar";
-import Icon from "../Icon/Icon";
+import "./style.css";
+import Avatar from "../Avatar";
+import Icon from "../Icon";
 
 export default function (props) {
   const {

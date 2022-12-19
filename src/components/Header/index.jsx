@@ -1,9 +1,9 @@
 import React from "react";
 import  faqLogo from  "../../assets/icons/japanese.png";
-import "./Header.css";
-import InputSearch from "../Input/InputSearch/InputSearch";
-import Icon from "../Icon/Icon";
-import Avatar from "../Avatar/Avatar";
+import "./style.css";
+import InputSearch from "../Input/InputSearch";
+import Icon from "../Icon";
+import Avatar from "../Avatar";
 function Header() {
 
   return (

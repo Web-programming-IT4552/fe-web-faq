@@ -1,6 +1,6 @@
 import React from "react";
-import "./NewestQuestion.css";
-import Icon from "../Icon/Icon";
+import "./style.css";
+import Icon from "../Icon";
 
 export default function ({ title, likes, fullName, comments, views }) {
 

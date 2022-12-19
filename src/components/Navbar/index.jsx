@@ -1,6 +1,6 @@
 import React, {useState} from "react";
-import "./Navbar.css";
-import Button from "../Button/Button";
+import "./style.css";
+import Button from "../Button";
 
 export default function () {
   const [selected, setSelected] = useState(true);

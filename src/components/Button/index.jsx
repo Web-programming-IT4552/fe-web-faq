@@ -1,6 +1,6 @@
 import React, {useState} from "react";
-import "./Button.css";
-import Icon from "../Icon/Icon";
+import "./style.css";
+import Icon from "../Icon";
 
 
 export default function ({ icon, value, bgColor, textColor, iconColor }) {

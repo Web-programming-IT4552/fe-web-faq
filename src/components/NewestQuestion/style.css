@@ -1,5 +1,5 @@
 @import "../../index.css";
-@import "../Post/PostOverview.css";
+@import "../Post/style.css";
 
 .faq-newest-qt {
   overflow: hidden;
