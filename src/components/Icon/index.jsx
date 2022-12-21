@@ -5,7 +5,7 @@ import {
   AiFillLike,
   AiOutlineEye,
   AiOutlineComment,
-  AiFillGithub, AiFillInstagram
+  AiFillGithub, AiFillInstagram, AiFillMessage
 } from "react-icons/ai";
 import { FaRegBookmark, FaBookmark } from "react-icons/fa";
 import { BsFillPencilFill, BsFacebook } from "react-icons/bs";
@@ -29,6 +29,7 @@ const icons = {
   facebook: BsFacebook,
   github: AiFillGithub,
   instagram: AiFillInstagram,
+  message: AiFillMessage,
 }
 
 function Icon({ name, sizeText, color }) {
