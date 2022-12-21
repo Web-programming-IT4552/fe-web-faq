@@ -6,11 +6,12 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import NewestQuestion from "./components/NewestQuestion";
 import Heading from "./components/Heading";
+import Pagination from './components/Pagination';
 function App() {
   return (
     <div className="App">
       <Header />
-      <img src={banner} className="faq-banner" alt="banner image"/>
+      <img src={banner} className="faq-banner" alt="banner image" />
       <Navbar />
       <div className="w-5/6 xl:w-2/3 my-16 m-auto grid grid-cols-12 gap-8">
         <div className="faq-corner col-span-8">
@@ -37,7 +38,11 @@ function App() {
             bookmarked={false}
             followed={true}
           />
+
+          <Pagination />
+          
         </div>
+
         <div className="col-span-4">
           <div className="flex items-center">
             <Heading title="CÂU HỎI MỚI NHẤT" size="medium" color="var(--color-blue-secondary--)" />

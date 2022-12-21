@@ -21,6 +21,7 @@ function Header() {
       </div>
       <div className="faq-header__utils col-span-3 pl-5 flex items-center">
         <Icon name="notification" sizeText="medium" />
+        <Icon name="message" sizeText="medium" />
         <Icon name="pencil" sizeText="medium" />
         <Avatar margin="0 0 0 20px" size="small" />
       </div>
