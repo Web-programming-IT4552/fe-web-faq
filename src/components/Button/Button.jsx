@@ -1,6 +1,6 @@
-import React, {useState} from "react";
-import "./style.css";
-import Icon from "../Icon";
+import React, { useState } from "react";
+import "./Button.css";
+import Icon from "../Icon/Icon";
 
 
 export default function ({ icon, value, bgColor, textColor, iconColor }) {
@@ -16,7 +16,7 @@ export default function ({ icon, value, bgColor, textColor, iconColor }) {
         fontSize: 15
       }}
     >
-      { icon && <Icon color={iconColor} name={icon} sizeText="small" />  }
+      {icon && <Icon color={iconColor} name={icon} sizeText="small" />}
       <span className="faq-btn__value">{value}</span>
     </button>
   );

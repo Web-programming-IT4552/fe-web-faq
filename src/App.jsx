@@ -1,16 +1,32 @@
 import './App.css';
-import Header from "./components/Header";
+import Header from "./components/Header/Header";
 import banner from "./assets/clay-banks-hwLAI5lRhdM-unsplash.jpg";
-import PostOverview from "./components/Post";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import NewestQuestion from "./components/NewestQuestion";
-import Heading from "./components/Heading";
-import Pagination from './components/Pagination';
+import PostOverview from "./components/Post/Post";
+import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
+import NewestQuestion from "./components/NewestQuestion/NewestQuestion";
+import Heading from "./components/Heading/Heading";
+import Pagination from './components/Pagination/Pagination';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import MainLayout from './layouts/MainLayout';
+import HomepageLayout from './layouts/HomepageLayout';
+
 function App() {
   return (
     <div className="App">
-      <Header />
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<HomepageLayout />} />
+          <Route path='/question' element={<MainLayout />} />
+          <Route path='/videocall' element={<MainLayout />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
+  )
+}
+
+export default App;
+{/* <Header />
       <img src={banner} className="faq-banner" alt="banner image" />
       <Navbar />
       <div className="w-5/6 xl:w-2/3 my-16 m-auto grid grid-cols-12 gap-8">
@@ -40,7 +56,7 @@ function App() {
           />
 
           <Pagination />
-          
+
         </div>
 
         <div className="col-span-4">
@@ -67,8 +83,5 @@ function App() {
         </div>
       </div>
       <Footer />
-    </div>
-  );
-}
-
-export default App;
+    </div >
+  ); */}

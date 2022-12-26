@@ -1,7 +1,7 @@
 import React from "react";
-import "./style.css";
-import Heading from "../Heading";
-import Icon from "../Icon";
+import "./Footer.css";
+import Heading from "../Heading/Heading";
+import Icon from "../Icon/Icon";
 
 import imgGooglePlay from "../../assets/google.png";
 import imgAppStore from "../../assets/appstore.png";
@@ -24,11 +24,11 @@ export default function () {
           <Heading size="medium" title="ỨNG DỤNG DI ĐỘNG" />
           <div className="flex gap-5 items-center my-3">
             <div>
-              <img style={{ width: 120, marginBottom: 10 }} src={imgGooglePlay} alt="Google play image"/>
-              <img style={{ width: 120 }} src={imgAppStore} alt="App Store image"/>
+              <img style={{ width: 120, marginBottom: 10 }} src={imgGooglePlay} alt="Google play image" />
+              <img style={{ width: 120 }} src={imgAppStore} alt="App Store image" />
             </div>
             <div>
-              <img style={{ width: 80 }} src={imgQrcode} alt="App Store image"/>
+              <img style={{ width: 80 }} src={imgQrcode} alt="App Store image" />
             </div>
           </div>
           <Heading size="medium" title="LIÊN KẾT" />
