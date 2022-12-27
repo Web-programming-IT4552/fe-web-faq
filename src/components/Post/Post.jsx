@@ -1,8 +1,8 @@
-import React, {useState} from "react";
-import "./style.css";
-import Avatar from "../Avatar";
-import Icon from "../Icon";
-
+import React, { useState } from "react";
+import "./Post.css";
+import Avatar from "../Avatar/Avatar";
+import Icon from "../Icon/Icon";
+import { Route } from "react-dom"
 export default function (props) {
   const {
     avatar,
@@ -33,7 +33,7 @@ export default function (props) {
         <span className="faq-post-ov__datetime">{datetime}</span>
         <p className="faq-post-ov__title">{title}</p>
         <div className="faq-post-ov__tags">
-          { tags?.map((tag, i) => (<span className="faq-post-ov__tag" key={i}>{tag}</span>)) }
+          {tags?.map((tag, i) => (<span className="faq-post-ov__tag" key={i}>{tag}</span>))}
         </div>
         <div className="faq-post-ov__reacts flex gap-4">
           <span className="faq-post-ov__likes flex items-center">
