@@ -8,7 +8,9 @@ import {
   AiFillGithub, AiFillInstagram, AiFillMessage
 } from "react-icons/ai";
 import { FaRegBookmark, FaBookmark } from "react-icons/fa";
-import { BsFillPencilFill, BsFacebook } from "react-icons/bs";
+import { BsFillPencilFill, BsFacebook, BsFillQuestionCircleFill } from "react-icons/bs";
+import {HiUserAdd, HiDotsHorizontal} from "react-icons/hi";
+
 import "./Icon.css";
 
 const sizeOpj = {
@@ -30,6 +32,9 @@ const icons = {
   github: AiFillGithub,
   instagram: AiFillInstagram,
   message: AiFillMessage,
+  follow: HiUserAdd,
+  question: BsFillQuestionCircleFill,
+  menu: HiDotsHorizontal
 }
 
 function Icon({ name, sizeText, color }) {
