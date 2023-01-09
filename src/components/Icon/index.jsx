@@ -5,7 +5,14 @@ import {
   AiFillLike,
   AiOutlineEye,
   AiOutlineComment,
-  AiFillGithub, AiFillInstagram, AiFillMessage
+  AiFillGithub,
+  AiFillInstagram,
+  AiFillMessage,
+  AiFillSetting,
+  AiOutlineDown,
+  AiOutlineSmile,
+  AiOutlineCamera,
+  AiOutlineSend
 } from "react-icons/ai";
 import { FaRegBookmark, FaBookmark } from "react-icons/fa";
 import { BsFillPencilFill, BsFacebook } from "react-icons/bs";
@@ -14,7 +21,7 @@ import "./style.css";
 const sizeOpj = {
   small: '16px',
   medium: '25px',
-  big: '50px',
+  big: '30px',
 };
 
 const icons = {
@@ -30,7 +37,12 @@ const icons = {
   github: AiFillGithub,
   instagram: AiFillInstagram,
   message: AiFillMessage,
-}
+  setting: AiFillSetting,
+  arrow_down: AiOutlineDown,
+  emoji: AiOutlineSmile,
+  camera: AiOutlineCamera,
+  send: AiOutlineSend,
+};
 
 function Icon({ name, sizeText, color }) {
   const size = sizeOpj[sizeText];
@@ -38,10 +50,12 @@ function Icon({ name, sizeText, color }) {
 
   return (
     <div className="faq-icon">
-      <IconName style={{
-        fontSize: size,
-        color: color
-      }}/>
+      <IconName
+        style={{
+          fontSize: size,
+          color: color
+        }}
+      />
     </div>
   );
 }

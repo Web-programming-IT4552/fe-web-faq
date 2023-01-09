@@ -7,9 +7,12 @@ import Footer from "./components/Footer";
 import NewestQuestion from "./components/NewestQuestion";
 import Heading from "./components/Heading";
 import Pagination from './components/Pagination';
+import Chat from "./components/Chat/Chat";
 function App() {
   return (
-    <div className="App">
+    <div className="App" style={{
+      position: "relative"
+    }}>
       <Header />
       <img src={banner} className="faq-banner" alt="banner image" />
       <Navbar />
@@ -67,6 +70,7 @@ function App() {
         </div>
       </div>
       <Footer />
+      <Chat />
     </div>
   );
 }
