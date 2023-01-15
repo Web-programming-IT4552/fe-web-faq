@@ -15,8 +15,10 @@ import {
   AiOutlineSend
 } from "react-icons/ai";
 import { FaRegBookmark, FaBookmark } from "react-icons/fa";
-import { BsFillPencilFill, BsFacebook } from "react-icons/bs";
-import "./style.css";
+import { BsFillPencilFill, BsFacebook, BsFillQuestionCircleFill } from "react-icons/bs";
+import {HiUserAdd, HiDotsHorizontal} from "react-icons/hi";
+
+import "./Icon.css";
 
 const sizeOpj = {
   small: '16px',
@@ -42,7 +44,10 @@ const icons = {
   emoji: AiOutlineSmile,
   camera: AiOutlineCamera,
   send: AiOutlineSend,
-};
+  follow: HiUserAdd,
+  question: BsFillQuestionCircleFill,
+  menu: HiDotsHorizontal
+}
 
 function Icon({ name, sizeText, color }) {
   const size = sizeOpj[sizeText];
