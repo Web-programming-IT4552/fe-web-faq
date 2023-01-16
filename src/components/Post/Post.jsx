@@ -10,6 +10,7 @@ export default function (props) {
     avatar,
     fullName,
     datetime,
+    content,
     title,
     tags,
     likes,
@@ -44,6 +45,9 @@ export default function (props) {
               {tag}
             </span>
           ))}
+        </div>
+        <div className="faq-post-ov__content">
+          {content}
         </div>
         <div className="faq-post-ov__reacts flex gap-4">
           <span className="faq-post-ov__likes flex items-center">

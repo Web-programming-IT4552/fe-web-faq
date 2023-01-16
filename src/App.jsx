@@ -5,6 +5,7 @@ import MainLayout from './layouts/MainLayout';
 import HomepageLayout from './layouts/HomepageLayout';
 import Homepage from './pages/Homepage/Homepage';
 import BlogDetail from './pages/BlogDetail/BlogDetail';
+import SearchPage from "./pages/Search/SearchPage";
 
 function App() {
   return (
@@ -21,6 +22,11 @@ function App() {
 
             </MainLayout>
           }/>
+          <Route path="/search" element={
+            <MainLayout>
+              <SearchPage />
+            </MainLayout>
+          } />
           <Route path='/videocall' element={<MainLayout />} />
         </Routes>
         <Routes>
