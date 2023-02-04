@@ -1,4 +1,4 @@
-import React from "react";
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
 import banner from "../assets/clay-banks-hwLAI5lRhdM-unsplash.jpg";

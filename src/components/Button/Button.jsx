@@ -3,6 +3,7 @@ import "./Button.css";
 import Icon from "../Icon/Icon";
 
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default function ({ icon, value, bgColor, textColor, iconColor }) {
 
   return (

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import React from "react";
 import "./Footer.css";
 import Heading from "../Heading/Heading";
@@ -7,6 +8,7 @@ import imgGooglePlay from "../../assets/google.png";
 import imgAppStore from "../../assets/appstore.png";
 import imgQrcode from "../../assets/qrcode.png";
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default function () {
   return (
     <div className="faq-footer w-full">
