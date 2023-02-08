@@ -6,6 +6,8 @@ import HomepageLayout from './layouts/HomepageLayout';
 import Homepage from './pages/Homepage/Homepage';
 import BlogDetail from './pages/BlogDetail/BlogDetail';
 import SearchPage from "./pages/Search/SearchPage";
+import Login from './pages/Login/Login';
+import Signin from './pages/Signin/Signin';
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
             </MainLayout>
           } />
           <Route path='/videocall' element={<MainLayout />} />
+          <Route path='/login' element={<Login/>} />
+          <Route path='/signin' element={<Signin/>} />
         </Routes>
         <Routes>
           <Route path='/blog/1' element={

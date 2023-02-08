@@ -5,7 +5,7 @@ import InputSearch from "../Input/InputSearch/InputSearch";
 import Icon from "../Icon/Icon";
 import Avatar from "../Avatar/Avatar";
 // import MainLayout from "../../layouts/MainLayout"
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 function Header() {
   return (
     <div className="faq-header grid grid-cols-12 w-3/4 md:w-5/6 m-auto h-16 px-2.5 content-center">
@@ -32,7 +32,6 @@ function Header() {
         <div className="faq-header__link">
           <Link to="/videocall">Video call</Link>
         </div>
-
       </div>
       <div className="faq-header__search col-span-3 flex items-center">
         <InputSearch />
@@ -41,7 +40,9 @@ function Header() {
         <Icon name="notification" sizeText="medium" />
         <Icon name="message" sizeText="medium" />
         <Icon name="pencil" sizeText="medium" />
-        <Avatar margin="0 0 0 20px" size="small" />
+        <Link to="/login">
+          <Avatar margin="0 0 0 20px" size="small" />
+        </Link>
       </div>
     </div>
   );
