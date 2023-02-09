@@ -12,9 +12,10 @@ import {
   AiOutlineDown,
   AiOutlineSmile,
   AiOutlineCamera,
-  AiOutlineSend
+  AiOutlineSend,
+  AiFillGoogleCircle
 } from "react-icons/ai";
-import { FaRegBookmark, FaBookmark } from "react-icons/fa";
+import { FaRegBookmark, FaBookmark, FaUserAlt, FaLock } from "react-icons/fa";
 import { BsFillPencilFill, BsFacebook, BsFillQuestionCircleFill } from "react-icons/bs";
 import {HiUserAdd, HiDotsHorizontal} from "react-icons/hi";
 import {FiSearch} from "react-icons/fi";
@@ -49,6 +50,9 @@ const icons = {
   question: BsFillQuestionCircleFill,
   menu: HiDotsHorizontal,
   search: FiSearch,
+  user: FaUserAlt,
+  password: FaLock,
+  google: AiFillGoogleCircle
 }
 
 function Icon({ name, sizeText, color }) {
