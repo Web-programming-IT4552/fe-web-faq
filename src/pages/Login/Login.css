@@ -69,7 +69,7 @@ input[type="password"] {
 }
 
 .login-form {
-  background-color: white;
+  background-color: rgb(235 235 235 / 70%);
   padding: 2rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -161,7 +161,7 @@ input[type="password"] {
 .social-login-list__button {
   display: flex;
   align-items: center;
-  border: 1px solid #d1d1d1;
+  border: 1px solid #9c9797;
   padding: 5px 15px 5px 10px;
   border-radius: 4px;
   width: 30%;
