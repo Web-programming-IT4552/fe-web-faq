@@ -2,58 +2,58 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { Link, Navigate } from "react-router-dom";
 import "./Login.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Icon from "../../components/Icon/Icon";
 
 function Login() {
   // React States
-  const [errorMessages, setErrorMessages] = useState({});
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [email, setemail] = useState("");
+  const [password, setPassword] = useState("");
+  
+  const handleSubmit = (e) => {
+    let headers = new Headers();
+    headers.append("Content-Type", "application/json");
+    headers.append("Accept", "application/json");
 
-  // User Login info
-  const database = [
-    {
-      username: "user1@gmail.com",
-      password: "pass1",
-    },
-    {
-      username: "user2@gmail.com",
-      password: "pass2",
-    },
-  ];
+    headers.append("Access-Control-Allow-Origin", "https://hedspi.dev");
+    headers.append("Access-Control-Allow-Credentials", "true");
 
-  const errors = {
-    uemail: "invalid username",
-    pass: "invalid password",
-  };
-
-  const handleSubmit = (event) => {
-    //Prevent page reload
-    event.preventDefault();
-
-    var { uemail, pass } = document.forms[0];
-
-    // Find user login info
-    const userData = database.find((user) => user.username === uemail.value);
-
-    // Compare user info
-    if (userData) {
-      if (userData.password !== pass.value) {
-        // Invalid password
-        setErrorMessages({ name: "pass", message: errors.pass });
-      } else {
-        setIsSubmitted(true);
-      }
-    } else {
-      // Username not found
-      setErrorMessages({ name: "uemail", message: errors.uemail });
+    headers.append("GET", "POST", "OPTIONS");
+    const requestOptions = {
+      method: "POST",
+      headers: headers,
+      body: JSON.stringify({ email, password }),
+    };
+    e.preventDefault();
+    if (validate()) {
+      fetch("https://hedspi.dev/core/login", requestOptions)
+        .then((res) => {
+          return res.json();
+        })
+        .then((resp) => {
+          console.log(resp);
+        })
+        .catch((err) => {
+          toast.error("Incorrect account or password ");
+        });
     }
+
   };
 
+  const validate = () => {
+    let result = true;
+    if (email === "" || email === null) {
+      result = false;
+      toast.warning("Please Enter email");
+    }
+    if (password === "" || password === null) {
+      result = false;
+      toast.warning("Please Enter Password");
+    }
+    return result;
+  };
   // Generate JSX code for error message
-  const renderErrorMessage = (name) =>
-    name === errorMessages.name && (
-      <div className="error">{errorMessages.message}</div>
-    );
 
   // JSX code for login form
   const renderForm = (
@@ -69,9 +69,9 @@ function Login() {
               type="text"
               name="email"
               placeholder="Email"
-              equired
+              value={email}
+              onChange={(e) => setemail(e.target.value)}
             />
-            {renderErrorMessage("uemail")}
           </div>
           <div className="form-container-detail">
             <div className="form-container-detail__icon">
@@ -82,15 +82,15 @@ function Login() {
               type="password"
               name="pass"
               placeholder="Mật khẩu"
-              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
-            {renderErrorMessage("pass")}
           </div>
         </div>
         <div className="button-container">
-          <span className="button-login">
-            <Link to="/">Đăng nhập</Link>
-          </span>
+          {/* <Link className="button-login" to="/"> */}
+          <button className="button-login">Đăng nhập</button>
+          {/* </Link> */}
         </div>
       </form>
     </div>
@@ -99,20 +99,21 @@ function Login() {
   return (
     <>
       <div className="wrap-container"></div>
+      <ToastContainer />
       <div className="app">
         <div className="login-form">
           <div className="login-form__webname">FAQ Forum</div>
-          <div className="title">Đăng nhập</div>
-          {isSubmitted ? (
-            <div>
-              <Navigate to="/" />
-            </div>
-          ) : (
-            renderForm
-          )}
+          <div className="title" type="submit">
+            Đăng nhập
+          </div>
+          {renderForm}
           <div className="route-signin">
-            <Link className="route-click" to="/login">Quên mật khẩu?</Link>
-            <Link className="route-click" to="/signin">Tạo tài khoản</Link>
+            <Link className="route-click" to="/login">
+              Quên mật khẩu?
+            </Link>
+            <Link className="route-click" to="/signin">
+              Tạo tài khoản
+            </Link>
           </div>
           <div className="signin-another-form">
             <hr className="signin-another-form__fill" />
