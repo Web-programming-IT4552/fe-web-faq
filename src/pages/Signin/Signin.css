@@ -129,8 +129,8 @@ input[type="password"] {
   justify-content: space-between;
   display: flex;
   align-items: center;
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin-top: 5px;
+  margin-bottom: 20px;
 }
 
 .signin-another-form__fill {
@@ -150,7 +150,7 @@ input[type="password"] {
 .social-login-list__button {
   display: flex;
   align-items: center;
-  border: 1px solid #d1d1d1;
+  border: 1px solid #949494;
   padding: 5px 15px 5px 10px;
   border-radius: 4px;
   width: 30%;
