@@ -8,6 +8,7 @@ import BlogDetail from './pages/BlogDetail/BlogDetail';
 import SearchPage from "./pages/Search/SearchPage";
 import Login from './pages/Login/Login';
 import Signin from './pages/Signin/Signin';
+import WritePost from "./pages/WritePost/WritePost";
 
 function App() {
   return (
@@ -27,6 +28,11 @@ function App() {
           <Route path="/search" element={
             <MainLayout>
               <SearchPage />
+            </MainLayout>
+          } />
+          <Route path="/write" element={
+            <MainLayout>
+              <WritePost />
             </MainLayout>
           } />
           <Route path='/videocall' element={<MainLayout />} />

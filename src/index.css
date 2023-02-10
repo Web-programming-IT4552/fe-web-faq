@@ -6,6 +6,7 @@
   --color-white--: #FFF;
   --color-black--: #000;
   --color-red-secondary--: #ea491b;
+  --color-red-tertiary--: #ffe8d0;
   --color-blue-primary--: #5c94ea;
   --color-blue-secondary--: #00b3d8;
   --color-gray-zero--: #b9b9ba;
@@ -33,6 +34,24 @@ body {
   display: table;
 }
 
-html {
-  /*font-size: 62.5%;*/
+/*html {*/
+/*  font-size: 62.5%;*/
+/*}*/
+
+/* Typo */
+.text-blur {
+  color: hsla(210, 8.3%, 23.5%, .8);
 }
+
+/* Box shadow */
+.shadow-light {
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+/* flex center */
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
