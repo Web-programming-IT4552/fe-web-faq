@@ -1,7 +1,9 @@
 @import "../../index.css";
 
 .faq-wrpost {
-  margin-bottom: 60px;
+  max-width: 1200px;
+  margin: 0 auto 60px;
+  width: 90%;
 }
 
 .faq-wrpost__section {
@@ -117,34 +119,15 @@
   border: 1px solid var(--color-red-secondary--);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 5vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-  margin-bottom: 5vh;
-  text-align: center;
-  padding: 12px;
+.disabledbutton {
+  pointer-events: none;
+  opacity: 0.4;
+}
+.ql-toolbar.ql-snow + .ql-container.ql-snow {
+  height: 400px;
+  font-size: 14px;
 }
 
-.wrapper-class {
-  padding: 1rem;
-  border: 1px solid #ccc;
+.ql-toolbar.ql-snow + .ql-container.ql-snow img {
+  width: 500px;
 }
-.editor-class {
-  background-color:lightgray;
-  padding: 1rem;
-  border: 1px solid #ccc;
-}
-.toolbar-class {
-  border: 1px solid #ccc;
-}
-
-.cke_contents {
-  height: 400px !important;
-}
-

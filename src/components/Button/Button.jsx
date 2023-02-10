@@ -3,7 +3,7 @@ import "./Button.css";
 import Icon from "../Icon/Icon";
 
 
-export default function ({ icon, value, bgColor, textColor, iconColor, fontSize }) {
+export default function ({ icon, value, bgColor, textColor, iconColor, fontSize, padding }) {
 
   return (
     <button
@@ -11,7 +11,7 @@ export default function ({ icon, value, bgColor, textColor, iconColor, fontSize 
       style={{
         color: textColor,
         backgroundColor: bgColor,
-        padding: '6px 8px',
+        padding: padding ?? '6px 8px',
         borderRadius: 7,
         fontSize: `${fontSize ?? 15}px`
       }}

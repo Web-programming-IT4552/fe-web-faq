@@ -5,15 +5,15 @@ import TextEditor from "../../components/TextEditor/TextEditor";
 import Button from "../../components/Button/Button";
 
 
-export default function() {
+export default function WritePost() {
   const ulRef = useRef();
   const inputRef = useRef();
-  let pressCount = 0;
+  const titleRef = useRef();
 
   const [tags, setTags] = useState([]);
+  const [editorData, setEditorData] = useState("");
 
   function remove(tag) {
-    let index  = tags.indexOf(tag);
     setTags(prevTags => prevTags.filter(t => t !== tag));
   }
 
@@ -58,6 +58,21 @@ export default function() {
     }
   }
 
+  // TODO: remove html tag from editor data for calculating length of content
+  const filterHTML = editorData.replace(/<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/g, '');
+
+  const post = () => {
+    if(titleRef?.current?.value && tags.length && filterHTML.length >= 20) {
+      const body = {
+        title: titleRef.current?.value,
+        tags,
+        content: editorData
+      }
+
+      console.log("body: ", body);
+    }
+  }
+
   return (
     <form className="faq-wrpost" onSubmit={e => e.preventDefault()}>
       <div className="faq-wrpost__section shadow-light">
@@ -65,7 +80,7 @@ export default function() {
         <p className="faq-wrpost__tip text-blur">
           + Cụ thể và tưởng tượng bạn đang đặt câu hỏi cho người khác.
         </p>
-        <input className="faq-wrpost__input" placeholder="VD: Sự khác biệt giữa ごめん và すみません ?" />
+        <input ref={titleRef} className="faq-wrpost__input" placeholder="VD: Sự khác biệt giữa ごめん và すみません ?" />
       </div>
 
       <div className="faq-wrpost__section shadow-light">
@@ -85,7 +100,7 @@ export default function() {
             )
             )}
             <input ref={inputRef} onKeyDown={handleTag} />
-            <button className="remove-all flex-center" onClick={removeAll}>
+            <button className={"remove-all flex-center " + (!tags.length ? "disabledbutton" : "")} onClick={removeAll}>
               Xóa hết <Icon name="trash" sizeText="small" />
             </button>
           </ul>
@@ -98,11 +113,15 @@ export default function() {
           + Mô tả câu hỏi / viết nội dung bạn muốn chia sẻ trong blog. Tối thiểu 20 ký tự.
         </p>
         <div className="faq-editor">
-          <TextEditor />
+          <TextEditor passEditorData={setEditorData} />
         </div>
       </div>
-      <div className="flex-center">
-        <Button value="Đăng" bgColor="var(--color-blue-secondary--)" textColor="var(--color-white--)" icon="post" fontSize="19" />
+      <div
+        className={"flex-center " + (titleRef?.current?.value && tags.length && filterHTML.length >= 20 ?  "" : "disabledbutton")}
+        onClick={post}
+        style={{ marginTop: 40 }}
+      >
+        <Button value="Đăng" bgColor="var(--color-blue-tertiary--)" textColor="var(--color-blue-zero--)" icon="post" fontSize="20" padding="10px 40px" />
       </div>
     </form>
   );
