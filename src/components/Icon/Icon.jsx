@@ -65,7 +65,7 @@ function Icon({ name, sizeText, color }) {
   const IconName = icons[name];
 
   return (
-    <div className="faq-icon">
+    <div className="faq-icon flex-center">
       <IconName
         style={{
           fontSize: size,

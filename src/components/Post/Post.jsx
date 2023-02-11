@@ -27,16 +27,20 @@ export default function (props) {
   };
 
   return (
-    <div className="faq-post-ov grid grid-cols-12 gap-16">
-      <div className="faq-post-ov__avatar col-span-1 mt-3">
+    <div className="faq-post-ov">
+      <div className="faq-post-ov__avatar">
         <Link to="/blog/1">
           <Avatar size="small" />
         </Link>
-      </div>
-      <div className="faq-post-ov__desc col-span-7 text-left">
         <Link to="/blog/1">
-          <span className="faq-post-ov__name">{fullName}</span>
-          <span className="faq-post-ov__datetime">{datetime}</span>
+          <div className="faq-post-ov__info">
+            <p className="faq-post-ov__name">{fullName}</p>
+            <span className="faq-post-ov__datetime">{datetime}</span>
+          </div>
+        </Link>
+      </div>
+      <div className="faq-post-ov__desc">
+        <Link to="/blog/1">
           <p className="faq-post-ov__title">{title}</p>
         </Link>
         <div className="faq-post-ov__tags">
@@ -49,16 +53,16 @@ export default function (props) {
         <div className="faq-post-ov__content">
           {content}
         </div>
-        <div className="faq-post-ov__reacts flex gap-4">
-          <span className="faq-post-ov__likes flex items-center">
+        <div className="faq-post-ov__reacts">
+          <span className="faq-post-ov__likes">
             <Icon name="like" sizeText="small" />
             {likes}
           </span>
-          <span className="faq-post-ov__views flex items-center">
+          <span className="faq-post-ov__views">
             <Icon name="view" sizeText="small" />
             {views}
           </span>
-          <span className="faq-post-ov__comments flex items-center">
+          <span className="faq-post-ov__comments">
             <Icon name="comment" sizeText="small" />
             {comments}
           </span>

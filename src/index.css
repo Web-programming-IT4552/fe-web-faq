@@ -24,6 +24,10 @@ body {
   font-size: 1.4rem;
 }
 
+a {
+  text-decoration: none;
+}
+
 html {
   font-size: 62.5%;
 }

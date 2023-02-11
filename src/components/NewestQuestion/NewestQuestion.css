@@ -9,6 +9,10 @@
   border-bottom-width: 1px;
 }
 
+.faq-post-ov__reacts span {
+  display: inline-flex;
+  align-items: center;
+}
 
 .faq-newest-qt .faq-newest-qt__title {
   font-size: 15px;

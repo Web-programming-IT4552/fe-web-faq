@@ -40,7 +40,7 @@ const Homepage = () => {
 
         </div>
 
-        <div className="">
+        <div className="faq-hmpage__nwqt">
           <div className="">
             <Heading title="CÂU HỎI MỚI NHẤT" size="medium" color="var(--color-blue-secondary--)" />
             <hr className="faq-underline"></hr>
