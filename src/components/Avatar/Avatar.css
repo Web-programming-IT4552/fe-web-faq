@@ -13,6 +13,15 @@
   height: auto;
 }
 
+.faq-avatar.faq-avatar--medium {
+  width: 60px;
+  height: auto;
+}
+
 .faq-avatar--small img {
   width: 100%;
+}
+
+.faq-avatar--medium img {
+  width: 150%;
 }

@@ -13,13 +13,14 @@ import {
   AiOutlineSmile,
   AiOutlineCamera,
   AiOutlineSend,
-  AiFillGoogleCircle
+  AiFillGoogleCircle,
 } from "react-icons/ai";
 import { FaRegBookmark, FaBookmark, FaUserAlt, FaLock } from "react-icons/fa";
 import { BsFillPencilFill, BsFacebook, BsFillQuestionCircleFill } from "react-icons/bs";
 import {HiUserAdd, HiDotsHorizontal} from "react-icons/hi";
 import {FiSearch} from "react-icons/fi";
-
+import {GoSignOut} from "react-icons/go";
+import {RiPagesLine} from "react-icons/ri";
 import "./Icon.css";
 
 const sizeOpj = {
@@ -52,7 +53,9 @@ const icons = {
   search: FiSearch,
   user: FaUserAlt,
   password: FaLock,
-  google: AiFillGoogleCircle
+  google: AiFillGoogleCircle,
+  signout: GoSignOut,
+  content: RiPagesLine,
 }
 
 function Icon({ name, sizeText, color }) {
