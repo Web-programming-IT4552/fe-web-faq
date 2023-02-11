@@ -20,7 +20,7 @@ const PostAuthor = (props) => {
   return (
     <div className="faq-post-o grid grid-cols-12 gap-16">
       <div className="faq-post-o__avatar col-span-1">
-        <Avatar />
+        <Avatar size="medium" />
       </div>
       <div className="col-span-10 text-left">
         <span className="faq-post-o__name">{fullName}</span>

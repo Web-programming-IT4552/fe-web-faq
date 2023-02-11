@@ -6,7 +6,6 @@ import {useLocation} from "react-router-dom";
 const MainLayout = (props) => {
   const location = useLocation();
   const routeNotUseBanner = ["/search", "/write"];
-  console.log("route: ", location.pathname);
   return (
     <div>
       <Header />

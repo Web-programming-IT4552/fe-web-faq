@@ -3,6 +3,7 @@ import "./WritePost.css";
 import Icon from "../../components/Icon/Icon";
 import TextEditor from "../../components/TextEditor/TextEditor";
 import Button from "../../components/Button/Button";
+import Heading from "../../components/Heading/Heading";
 
 
 export default function WritePost() {
@@ -63,18 +64,26 @@ export default function WritePost() {
 
   const post = () => {
     if(titleRef?.current?.value && tags.length && filterHTML.length >= 20) {
-      const body = {
-        title: titleRef.current?.value,
-        tags,
-        content: editorData
-      }
+      const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          title: titleRef.current?.value,
+          tags,
+          content: editorData
+        }),
+      };
 
-      console.log("body: ", body);
+      fetch("/api/write", requestOptions)
+        .then(response => response.json())
+        .then(data => this.setState({ postId: data.id }));
+
     }
   }
 
   return (
     <form className="faq-wrpost" onSubmit={e => e.preventDefault()}>
+      <h1>Chia sẻ hoặc hỏi những gì bạn đang thắc mắc</h1>
       <div className="faq-wrpost__section shadow-light">
         <h3 className="faq-wrpost__heading">Tiêu đề</h3>
         <p className="faq-wrpost__tip text-blur">

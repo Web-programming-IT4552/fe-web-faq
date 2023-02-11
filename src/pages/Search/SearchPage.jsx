@@ -11,12 +11,26 @@ export default function () {
   const [searchInput, setSearchInput] = useState("");
   const [sortBox, setSortBox] = useState(false);
   const [isSending, setIsSending] = useState(false);
+  const [type, setType] = useState("Bài viết");
+  const [sortSearch, setSortSearch] = useState("Phù hợp nhất");
+  const [resultText, setResultText] = useState("");
+
+
   const handleFilterType = (e, elRef, className) => {
     const ulEl = elRef.current;
     Array.from(ulEl.children).forEach(li => li.classList.remove(className));
     e.target.classList.add(className);
     setIsSending(true);
+    setSortBox(false);
+    if(elRef === typesRef) {
+      setType(e.target.textContent);
+    }
+    else {
+      setSortSearch(e.target.textContent);
+    }
   }
+
+  console.log(`type: ${type}, sort: ${sortSearch}`);
 
   const [spinner, setSpinner] = useState(false);
 
@@ -24,11 +38,16 @@ export default function () {
     setSpinner(true);
     setIsSending(false);
     setTimeout(() => {
-      fetch('my/API/Endpoint', {
+      fetch('/api/search', {
         method: 'post',
-        body: "",
+        body: JSON.stringify({
+          content: searchInput,
+          type,
+          sort: sortSearch
+        }),
       }).then(function(data){
         setSpinner(false);
+        setResultText(searchInput);
       });
     }, 1000);
   }, [isSending]);
@@ -48,7 +67,7 @@ export default function () {
           </ul>
         </div>
         <div className="sort-types">
-          Sắp xếp theo: <span className="sort-selected" onClick={() => setSortBox(!sortBox)}>Phù hợp nhất</span>
+          Sắp xếp theo: <span className="sort-selected" onClick={() => setSortBox(!sortBox)}>{sortSearch}</span>
           <Icon name="arrow_down" sizeText="small" />
           {
             sortBox &&
@@ -70,7 +89,7 @@ export default function () {
         {spinner ? <Loader /> :
           (
             <div>
-              <div className="faq-search__total"><span className="total">{'1,407'}</span> kết quả</div>
+              <div className="faq-search__total"><span className="total">{'1,407'}</span> kết quả "<span className="result-text">{resultText}</span>" </div>
               <div className="faq-search__results">
                 <Post
                   fullName="Mai Đào Tuấn Thành"

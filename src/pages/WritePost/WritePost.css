@@ -2,9 +2,14 @@
 
 .faq-wrpost {
   max-width: 1200px;
-  margin: 0 auto 60px;
+  margin: 60px auto;
   width: 90%;
   font-size: 1.4rem;
+}
+
+h1 {
+  margin-left: 1rem;
+  margin-bottom: 4rem;
 }
 
 .faq-wrpost__section {
