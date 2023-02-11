@@ -9,6 +9,7 @@ import SearchPage from "./pages/Search/SearchPage";
 import Login from "./pages/Login/Login";
 import Signin from "./pages/Signin/Signin";
 import MyProfile from "./pages/MyProfile/MyProfile";
+import DashboardLayout from "./layouts/DashboardLayout/DashboardLayout";
 
 function App() {
   return (
@@ -38,10 +39,12 @@ function App() {
         </Routes>
         <Routes>
           <Route
-            path="/myprofile"
+            path="/dashboard/my-profile"
             element={
               <HomepageLayout>
-                <MyProfile />
+                <DashboardLayout>
+                  <MyProfile />
+                </DashboardLayout>
               </HomepageLayout>
             }
           ></Route>

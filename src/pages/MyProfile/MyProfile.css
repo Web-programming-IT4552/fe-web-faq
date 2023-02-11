@@ -1,12 +1,12 @@
-.form-profile-container {
+/* .form-profile-container {
     border-top: 1px solid #dcdcdc;
     padding-top: 100px;
     padding-bottom: 100px;
     background-color: #f0f0f0;
   }
-  
+   */
   .form-profile {
-    width: 50%;
+    width: 80%;
     border: 1px solid #dcdcdc;
     padding: 20px;
     margin: auto;
