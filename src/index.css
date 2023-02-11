@@ -26,6 +26,7 @@ body {
 
 a {
   text-decoration: none;
+  color: var(--color-black--)
 }
 
 html {
