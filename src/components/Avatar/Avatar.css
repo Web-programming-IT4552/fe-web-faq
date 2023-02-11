@@ -18,6 +18,11 @@
   height: auto;
 }
 
+.faq-avatar.faq-avatar--big {
+  width: 100px;
+  height: auto;
+}
+
 .faq-avatar--small img {
   width: 100%;
 }

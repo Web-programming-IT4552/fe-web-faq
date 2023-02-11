@@ -14,7 +14,9 @@ function Header(props) {
   return (
     <div className="faq-header grid grid-cols-12 w-3/4 md:w-5/6 m-auto h-16 px-2.5 content-center">
       <div className="faq-logo col-span-2">
-        <img src={faqLogo} className="faq-img" alt="faq logo" />
+        <Link to="/">
+          <img src={faqLogo} className="faq-img" alt="faq logo" />
+        </Link>
       </div>
       <div className="faq-header__navigation flex justify-around px-4 items-center col-span-4">
         {/* <BrowserRouter>
@@ -50,17 +52,17 @@ function Header(props) {
         </div>
 
         {/* drop down menu */}
-        <div className={`drop-down ${open? 'active' : 'inactive'}`}>
+        <div className={`drop-down ${open ? "active" : "inactive"}`}>
           <div className="drop-down-menu">
             <div className="faq-post-ov__avatar">
               <Avatar margin="0 10px 0 10px" size="medium" />
             </div>
             <div className="menu-info">
               <div className="info-change">
-                <div className="info-change__name">Mai Đào Tuấn Thành</div>
-                <div className="info-change__username">@Thanh_dao</div>
+                <div className="info-change__name">{name}</div>
+                <div className="info-change__username">@{username}</div>
               </div>
-              <Link>
+              <Link to="/myprofile">
                 <button className="button__edit">
                   <span className="text-edit">Sửa</span>
                 </button>
@@ -72,7 +74,9 @@ function Header(props) {
           <div className="drop-down-menu-item">
             <Link>
               <Icon name="user" sizeText="small" />
-              <span className="menu-item__text">Trang cá nhân</span>
+              <Link to="/myprofile">
+                <span className="menu-item__text">Trang cá nhân</span>
+              </Link>
             </Link>
           </div>
           <div className="drop-down-menu-item">
