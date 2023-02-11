@@ -70,7 +70,7 @@ export default function (props) {
       </div>
 
       <div className="faq-post-ov__bookmark" onClick={handleBookmark}>
-        <Icon name={bookmark ? "bookmark" : "bookmarked"} sizeText="medium" />
+        <Icon name={bookmark ? "bookmark" : "bookmarked"} color="var(--color-blue-secondary--)" sizeText="medium" />
       </div>
     </div>
   );

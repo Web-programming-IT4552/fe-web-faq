@@ -56,7 +56,7 @@
   position: absolute;
   top: 4rem;
   right: 2rem;
-  z-index: 8;
+  z-index: 20;
 }
 
 .faq-post-ov__content {

@@ -4,8 +4,7 @@ import "./Header.css";
 import InputSearch from "../Input/InputSearch/InputSearch";
 import Icon from "../Icon/Icon";
 import Avatar from "../Avatar/Avatar";
-// import MainLayout from "../../layouts/MainLayout"
-import {BrowserRouter, Routes, Route, Link, useNavigate} from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import useViewport from "../../hooks/useViewport";
 import Button from "../Button/Button";
 function Header() {
@@ -19,9 +18,10 @@ function Header() {
   }
 
   const toSearchPage = e => {
-    setSearchContent(e.target.value);
-    if(e.target.value && (e.key === 'Enter' || e.type === 'click')) {
-      navigate('search');
+    console.log("event: ", e);
+    setSearchContent(prevCt => prevCt = e.target.value);
+    if(e.target.value && e.key === 'Enter') {
+      navigate('/search');
     }
   }
 
@@ -31,16 +31,6 @@ function Header() {
         <img src={faqLogo} className="faq-logo" alt="faq logo" />
       </div>
       <div className="faq-header__navigation">
-        {/* <BrowserRouter>
-          <Routes>
-            <Route path="/" >
-              <div className="faq-header__link">
-                <Link to="/">Bài viết</Link>
-              </div>
-            </Route>
-          </Routes>
-
-        </BrowserRouter> */}
         <div className="faq-header__link">
           <Link to="/">Bài viết</Link>
         </div>
@@ -78,7 +68,9 @@ function Header() {
         (
           <div ref={searchExpand} className="faq-search__input-box">
             <input type="text" className="faq-search__input" placeholder="Bài viết, câu hỏi, tác giả..." onKeyUp={toSearchPage}/>
-            <Button icon="search" value="Tìm kiếm" bgColor="var(--color-blue-primary--)" textColor="var(--color-white--)" onClickFn={toSearchPage} disable={!searchContent}/>
+            <Link to="/search">
+              <Button icon="search" value="Tìm kiếm" bgColor="var(--color-blue-primary--)" textColor="var(--color-white--)" onClickFn={toSearchPage} disable={!searchContent}/>
+            </Link>
           </div>
         )
       }
