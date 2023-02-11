@@ -3,14 +3,14 @@ import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
 import banner from "../assets/clay-banks-hwLAI5lRhdM-unsplash.jpg";
 const MainLayout = (props) => {
-    return (
-        <div>
-            <Header />
-            <img src={banner} className="faq-banner" alt="banner image" />
-            {props.children}
-            <Footer />
-        </div>
-    )
-}
+  return (
+    <div>
+      <Header name="Mai Đào Tuấn Thành" username="Thanh_dao" />
+      <img src={banner} className="faq-banner" alt="banner image" />
+      {props.children}
+      <Footer />
+    </div>
+  );
+};
 
-export default MainLayout
+export default MainLayout;
