@@ -62,7 +62,7 @@ function Header(props) {
                 <div className="info-change__name">{name}</div>
                 <div className="info-change__username">@{username}</div>
               </div>
-              <Link to="/myprofile">
+              <Link to="/dashboard/my-profile">
                 <button className="button__edit">
                   <span className="text-edit">Sửa</span>
                 </button>
@@ -74,7 +74,7 @@ function Header(props) {
           <div className="drop-down-menu-item">
             <Link>
               <Icon name="user" sizeText="small" />
-              <Link to="/myprofile">
+              <Link to="/dashboard/my-profile">
                 <span className="menu-item__text">Trang cá nhân</span>
               </Link>
             </Link>

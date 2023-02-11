@@ -1,0 +1,46 @@
+.profile-container {
+  border-top: 1px solid #dcdcdc;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background-color: #f0f0f0;
+  content: "";
+  /* display: table; */
+  /* clear: both; */
+}
+
+.dashboard-profile {
+  width: 16%;
+  float: left;
+  margin-left: 130px;
+  border: 1px solid #dcdcdc;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.dashboard-children {
+  margin-left: 300px;
+}
+
+.dashboard-profile__title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #0a5bd8;
+}
+
+.dashboard-profile ul li {
+  font-size: 1.25rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  transition: 0.2s;
+  margin-left: 5px;
+}
+
+.dashboard-profile ul li:hover {
+  color: #0a5bd8;
+  margin-left: 20px;
+}
+
+.dashboard-profile .move-right {
+    color: #0a5bd8;
+    margin-left: 20px;
+}
