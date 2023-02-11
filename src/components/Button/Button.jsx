@@ -3,11 +3,17 @@ import "./Button.css";
 import Icon from "../Icon/Icon";
 
 
-export default function ({ icon, value, bgColor, textColor, iconColor, fontSize, padding }) {
+export default function (
+  {
+    icon, value, bgColor,
+    textColor, iconColor, fontSize,
+    padding, onClickFn, disable
+  }
+) {
 
   return (
     <button
-      className="faq-btn flex items-center"
+      className={"faq-btn flex-center " + (disable ? "disabledbutton" : "")}
       style={{
         color: textColor,
         backgroundColor: bgColor,
@@ -15,6 +21,7 @@ export default function ({ icon, value, bgColor, textColor, iconColor, fontSize,
         borderRadius: 7,
         fontSize: `${fontSize ?? 15}px`
       }}
+      onClick={onClickFn}
     >
       {icon && <Icon color={iconColor} name={icon} sizeText="small" />}
       <span className="faq-btn__value">{value}</span>

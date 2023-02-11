@@ -30,7 +30,7 @@ export default function (props) {
     <div className="faq-post-ov grid grid-cols-12 gap-16">
       <div className="faq-post-ov__avatar col-span-1 mt-3">
         <Link to="/blog/1">
-          <Avatar />
+          <Avatar size="small" />
         </Link>
       </div>
       <div className="faq-post-ov__desc col-span-7 text-left">
