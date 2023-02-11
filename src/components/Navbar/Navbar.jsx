@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import "./Navbar.css";
 import Button from "../Button/Button";
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default function () {
   const [selected, setSelected] = useState(true);
 
