@@ -18,11 +18,13 @@
   font-weight: 600;
   display: flex;
   align-items: center;
+  margin: 0 0 .5rem;
 }
 
 .faq-wrpost__tip {
   font-size: 15px;
   margin-left: 10px;
+  margin-top: .8rem;
 }
 
 .faq-wrpost__input {
@@ -33,6 +35,11 @@
   border-radius: 3px;
   outline: none;
   margin: 10px 0;
+}
+
+.faq-wrpost__input:first-of-type {
+  margin-top: 0;
+  width: 95.5%;
 }
 
 .faq-wrpost__input:focus {
@@ -124,6 +131,11 @@
   pointer-events: none;
   opacity: 0.4;
 }
+
+.faq-editor {
+  margin-top: 2rem;
+}
+
 .ql-toolbar.ql-snow + .ql-container.ql-snow {
   height: 400px;
   font-size: 14px;

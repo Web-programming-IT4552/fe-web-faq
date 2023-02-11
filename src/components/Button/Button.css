@@ -1,8 +1,17 @@
 @import "../../index.css";
 
+.faq-btn {
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
 .faq-btn:hover {
   transition: all .3s ease;
-  outline: 2px solid var(--color-blue-primary--);
+  outline: 2px solid var(--color-blue-secondary--);
   outline-offset: 4px;
   cursor: pointer;
+}
+
+.faq-btn:active {
+  box-shadow: unset;
 }
