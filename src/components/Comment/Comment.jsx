@@ -15,7 +15,7 @@ const Comment = (props) => {
           </div>
           <div className="faq-info__author">
             <span className="faq-comment__name">{fullName}</span>
-            <span className="faq-tag_name">@{userName}</span>
+            {/*<span className="faq-tag_name">@{userName}</span>*/}
           </div>
         </div>
         <div className="faq-comment__time">

@@ -3,9 +3,9 @@
 
 .faq-post-ovv {
   padding: 30px 0;
-  max-width: 660px;
-  width: 100%;
+  max-width: 70%;
   position: relative;
+  margin: 0 auto;
 }
 
 .faq-header-blog {
@@ -20,10 +20,10 @@
 
 }
 .faq-title-blog {
-  font-size: 2.5rem;
+  font-size: 4.5rem;
   font-weight: 700;
 }
 
 .faq-description {
-  font-size: 2rem;
+  font-size: 3.5rem;
 }

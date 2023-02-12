@@ -1,7 +1,7 @@
 @import "../../index.css";
 
 .faq-comment-header {
-  font-size: 1.2rem;
+  font-size: 2.2rem;
   font-weight: bold;
   display: flex;
   align-items: baseline;
@@ -41,6 +41,7 @@
   border: 2px solid #c5d9f7;
   border-radius: 3px;
   transition: border-color 0.1s ease-in;
+  font-size: 23px;
 }
 
 .faq-button-comment {

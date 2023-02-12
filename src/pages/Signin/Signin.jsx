@@ -2,66 +2,42 @@ import React, {useEffect, useState} from "react";
 import ReactDOM from "react-dom";
 import {Link, Navigate} from "react-router-dom";
 import {ToastContainer, toast} from "react-toastify";
-
 import "./Signin.css";
 import Icon from "../../components/Icon/Icon";
-import {isAuth} from "../../service/auth";
+import {isAuth, token} from "../../service/auth";
 
 function Signin() {
+    const HOST = process.env.REACT_APP_HOST;
     // React States
     const [name, setName] = useState("");
-    // const [phone, setPhone] = useState(null);
     const [email, setEmail] = useState("");
-    // const [address, setAddress] = useState(null);
-    // const [username, setUsername] = useState(null);
     const [password, setPassword] = useState("");
     const [password_confirmation, setConfirmPassword] = useState("");
     const [login, setLogin] = useState(false);
     const handleSubmit = (e) => {
-        //Prevent page reload
-        let headers = new Headers();
-        headers.append("Content-Type", "application/json");
-        headers.append("Accept", "application/json");
-
-        headers.append("Access-Control-Allow-Origin", "https://hedspi.dev");
-        headers.append("Access-Control-Allow-Credentials", "true");
-
-        headers.append("GET", "POST", "OPTIONS");
-
-        // var formdata = new FormData();
-        // formdata.append("name", { name });
-        // formdata.append("email", { email });
-        // formdata.append("password", { password });
-        // formdata.append("password_confirmation", { password_confirmation });
-        e.preventDefault();
-        fetch("https://hedspi.dev/user/register", {
-            method: "POST",
-            headers: headers,
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        var requestOptions = {
+            method: 'POST',
             body: JSON.stringify({name, email, password, password_confirmation}),
-        })
+            headers: myHeaders
+        };
+        e.preventDefault();
+        fetch(`${HOST}/user/register`, requestOptions)
             .then((response) => {
-                response.json();
+                 return response.json()
             })
-            .then((resp) => {
-                if (resp.email) {
-                    toast.success("Login successful!");
-                    // console.log(resp.access_token);
+            .then((result) => {
+                if(result.token) {
+                    toast.success("Sign up successfull!")
+                    console.log(result)
                 } else {
-                    toast.error("Incorrect account or password!");
+                    toast.error("Sign up failed!")
                 }
             })
-            // {
-            //   if (data.token) {
-            //     toast.success("Signin successful!");
-            //   } else {
-            //     toast.error("Signin failed!");
-            //   }
-
-            //   console.log(data);
-            // })
             .catch((error) => {
-                toast.error("Signin failed!");
-                console.error(error);
+                toast.error("Sign up failed!")
+                console.log('error', error)
             });
     };
 

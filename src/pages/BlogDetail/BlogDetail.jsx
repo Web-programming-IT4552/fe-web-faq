@@ -49,8 +49,8 @@ const BlogDetail = () => {
           tags={["kinh nghiệm", "chia sẻ", "hiragana", "kanji"]}
           description={content}
         />
-        <div className="col-span-4">
-          <Bookmark content="BOOKMARK BÀI VIẾT NÀY" />
+        <div className="faq-bookmark">
+          <Bookmark content="BOOKMARK" />
           {/* <TableOfContents>
           <Heading
             title="MỤC LỤC"
