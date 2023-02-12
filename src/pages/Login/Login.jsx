@@ -10,24 +10,48 @@ function Login() {
   // React States
   const [email, setemail] = useState("");
   const [password, setPassword] = useState("");
-  
+
   const handleSubmit = (e) => {
-    let headers = new Headers();
-    headers.append("Content-Type", "application/json");
-    headers.append("Accept", "application/json");
+    let myHeaders = new Headers();
+    fetch("https://hedspi.dev/user/login", requestOptions)
+      .then((response) => response.text())
+      .then((result) => console.log(result))
+      .catch((error) => console.log("error", error));
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("Accept", "application/json");
 
-    headers.append("Access-Control-Allow-Origin", "https://hedspi.dev");
-    headers.append("Access-Control-Allow-Credentials", "true");
+    myHeaders.append("Access-Control-Allow-Origin", "https://hedspi.dev");
+    myHeaders.append("Access-Control-Allow-Credentials", "true");
 
-    headers.append("GET", "POST", "OPTIONS");
+    myHeaders.append("GET", "POST", "OPTIONS");
+    // const requestOptions = {
+    //   method: "POST",
+    //   headers: myHeaders,
+    //   body: JSON.stringify({ email, password }),
+    // };
+    // e.preventDefault();
+    // if (validate()) {
+    //   fetch("https://hedspi.dev/user/login", requestOptions)
+    //     .then((res) => {
+    //       return res.json();
+    //     })
+    //     .then(result => {
+    //       console.log(result);
+    //       localStorage.setItem("access_token", result.access_token);
+    //     })
+    //     .catch(err => {
+    //       toast.error("Incorrect account or password ");
+    //     });
+    // }
     const requestOptions = {
       method: "POST",
-      headers: headers,
+      headers: myHeaders,
       body: JSON.stringify({ email, password }),
     };
+
     e.preventDefault();
     if (validate()) {
-      fetch("https://hedspi.dev/core/login", requestOptions)
+      fetch("https://hedspi.dev/user/login", requestOptions)
         .then((res) => {
           return res.json();
         })
@@ -38,7 +62,6 @@ function Login() {
           toast.error("Incorrect account or password ");
         });
     }
-
   };
 
   const validate = () => {
