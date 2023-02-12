@@ -9,49 +9,40 @@
   margin-top: -3px;
 }
 
-.faq_navbar .faq-navbar__main {
+.faq_navbar nav {
   height: 6rem;
+}
+
+.faq-navbar__nav.faq-navbar__nav--selected {
   position: relative;
 }
 
-.faq-navbar__main label {
+.faq-navbar__nav--selected::before {
+  position: absolute;
+  content: '';
+  display: block;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 2px;
+  width: 60%;
+  background-color: var(--color-white--);
+}
+
+.faq-navbar__main li {
   cursor: pointer;
   text-transform: uppercase;
   font-size: 1.6rem;
   width: 100%;
-  z-index: 1;
+  height: 100%;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.faq-navbar__main label p {
+.faq-navbar__main li p {
   position: relative;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   transition: color 0.6s ease;
 }
-
-.faq-navbar__main .tab {
-  position: absolute;
-  height: 3px;
-  width: 20%;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 1;
-  border-radius: 50px;
-  background: var(--color-white--);
-  transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-.faq-navbar__main #following:checked ~ .tab{
-  left: 20%;
-}
-.faq-navbar__main #blog:checked ~ .tab{
-  left: 40%;
-}
-.faq-navbar__main #bookmark:checked ~ .tab{
-  left: 60%;
-}
-
-input[type="radio"] {
-  display: none;
-}
-

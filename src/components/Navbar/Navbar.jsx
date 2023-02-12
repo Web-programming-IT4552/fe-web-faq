@@ -1,42 +1,38 @@
-import React from "react";
+import React, {useState} from "react";
 import "./Navbar.css";
 import Button from "../Button/Button";
 import {useNavigate} from "react-router-dom";
 
 export default function Navbar() {
   const navigate = useNavigate();
-  const handleSelected = e => {
-    if(e.target.nodeName === 'LI' || e.target.nodeName === 'P') {
+  const [selected, setSelected] = useState(true);
 
-    }
+  const handleSelected = e => {
+    if(e.target.nodeName === 'NAV') return;
+    document.querySelectorAll('.faq-navbar__nav').forEach(link => link.classList.remove('faq-navbar__nav--selected'));
+    e.target.parentElement.classList.add('faq-navbar__nav--selected');
   }
 
   const toWritePostPage = () => navigate('write');
 
   return (
     <div className="faq-navbar">
-      <nav className="faq-navbar__main flex-center" onClick={e => handleSelected(e)}>
-        <input type="radio" name="tab" id="newest" defaultChecked />
-        <input type="radio" name="tab" id="following" />
-        <input type="radio" name="tab" id="blog" />
-        <input type="radio" name="tab" id="bookmark" />
-        <label htmlFor="newest" className="faq-navbar__nav newest">
+      <nav className="faq-navbar__main flex-center" style={{ height: '6rem' }} onClick={e => handleSelected(e)}>
+        <li className="faq-navbar__nav faq-navbar__nav--selected">
           <p>Mới nhất</p>
-        </label>
-        <label htmlFor="following" className="faq-navbar__nav following">
+        </li>
+        <li className="faq-navbar__nav ">
           <p>Đang theo dõi</p>
-        </label>
-        <label htmlFor="blog" className="faq-navbar__nav blog">
+        </li>
+        <li className="faq-navbar__nav ">
           <p>Blog</p>
-        </label>
-        <label htmlFor="bookmark" className="faq-navbar__nav bookmark">
+        </li>
+        <li className="faq-navbar__nav ">
           <p>Bookmark</p>
-        </label>
-        <label onClick={toWritePostPage}>
+        </li>
+        <li onClick={toWritePostPage}>
           <Button icon="pen" value="VIẾT BÀI" bgColor="var(--color-blue-secondary--)" iconColor="var(--color-black--)" />
-        </label>
-        <div className="tab"></div>
-
+        </li>
       </nav>
     </div>
   );
