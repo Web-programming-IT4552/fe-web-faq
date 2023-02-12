@@ -74,10 +74,10 @@ export default function WritePost() {
         }),
       };
 
-      fetch("/api/write", requestOptions)
+      fetch("https://hedspi.dev/post/create", requestOptions)
         .then(response => response.json())
-        .then(data => this.setState({ postId: data.id }));
-
+        .then(data => console.log(data));
+        
     }
   }
 

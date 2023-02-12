@@ -60,7 +60,7 @@ const icons = {
   tag: AiFillTags,
   trash: BsTrash,
   pendesc: FaPencilAlt,
-  post: AiOutlineExport
+  post: AiOutlineExport,
   signout: GoSignOut,
   content: RiPagesLine,
 }

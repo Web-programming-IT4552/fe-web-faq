@@ -45,7 +45,7 @@ const MyProfile = (user, updateUser, userId) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetch(`https://hedspi.dev/core/profile`, {
+    fetch(`https://hedspi.dev/user/profile`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

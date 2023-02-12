@@ -14,12 +14,11 @@ const MainLayout = (props) => {
         className="faq-banner"
         alt="banner image"
         hidden={routeNotUseBanner.filter(r => location.pathname.startsWith(r)).length > 0}
-      />
-    <div>
-      
+      />      
       {props.children}
       <Footer />
     </div>
+
   );
 }
 
