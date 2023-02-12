@@ -46,7 +46,7 @@ function Header() {
       <div className="faq-header__utils">
         <div className="faq-header__search">
           {viewport.width >= 1000
-            ? <InputSearch />
+            ? <InputSearch eventFn={toSearchPage} />
             : (
               <div className="search-mini" onClick={expandSearchBox}>
                 <Icon name="search" sizeText="medium" />

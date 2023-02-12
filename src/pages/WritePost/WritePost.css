@@ -40,11 +40,12 @@ h1 {
   border-radius: 3px;
   outline: none;
   margin: 10px 0;
+  height: 3rem;
 }
 
 .faq-wrpost__input:first-of-type {
   margin-top: 0;
-  width: 95.5%;
+  width: 97%;
 }
 
 .faq-wrpost__input:focus {
@@ -148,4 +149,10 @@ h1 {
 
 .ql-toolbar.ql-snow + .ql-container.ql-snow img {
   width: 500px;
+}
+
+@media screen and (max-width: 1000px) {
+  .faq-wrpost__input:first-of-type {
+    width: 95.5%;
+  }
 }

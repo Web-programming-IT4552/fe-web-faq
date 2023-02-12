@@ -2,10 +2,10 @@ import React from "react";
 import { FcSearch } from "react-icons/fc";
 import "./InputSearch.css";
 
-export default function () {
+export default function ({ eventFn }) {
  return (
   <div className="faq-search">
-    <input type="text" className="" placeholder="Tên post, người dùng..."/>
+    <input type="text" className="" placeholder="Tên post, người dùng..." onKeyUp={eventFn}/>
     <FcSearch style={{
       position: 'absolute',
       fontSize: '20px',
