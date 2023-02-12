@@ -1,0 +1,40 @@
+@import "../../index.css";
+
+.faq-underline {
+  flex-grow: 1;
+  border-color: var(--color-gray-secondary--);
+}
+
+.faq-corner {
+  position: relative;
+}
+
+.faq-corner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -10px;
+  width: 50px;
+  height: 80px;
+  display: block;
+  border-top: 1px solid var(--color-gray-secondary--);
+  border-right: 2px solid var(--color-gray-secondary--);
+}
+
+
+.faq-banner {
+  width: 100%;
+  height: 30rem;
+}
+
+.faq-hmpage {
+  display: grid;
+  grid-template-columns: 58% 35%;
+  padding: 0 10%;
+  margin-top: 4rem;
+  column-gap: 7%;
+}
+
+.faq-hmpage__nwqt {
+
+}

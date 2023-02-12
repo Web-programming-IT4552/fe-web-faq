@@ -1,34 +1,41 @@
-import React from "react";
+import React, {useRef, useState} from "react";
 import faqLogo from "../../assets/icons/japanese.png";
 import "./Header.css";
 import InputSearch from "../Input/InputSearch/InputSearch";
 import Icon from "../Icon/Icon";
 import Avatar from "../Avatar/Avatar";
-import { useState } from "react";
-// import MainLayout from "../../layouts/MainLayout"
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+
+import { Link, useNavigate} from "react-router-dom";
+import useViewport from "../../hooks/useViewport";
+import Button from "../Button/Button";
 function Header(props) {
+  const viewport = useViewport();
+  const searchExpand = useRef();
+  const navigate = useNavigate();
+  const [searchContent, setSearchContent] = useState('');
   const { avatar, name, username } = props;
   const [open, setOpen] = useState(false);
+  const expandSearchBox = () => {
+    searchExpand.current?.classList.toggle("search-expand");
+  }
+
+  const toSearchPage = e => {
+    console.log("event: ", e);
+    setSearchContent(prevCt => prevCt = e.target.value);
+    if(e.target.value && e.key === 'Enter') {
+      expandSearchBox();
+      navigate('/search');
+    }
+  }
 
   return (
-    <div className="faq-header grid grid-cols-12 w-3/4 md:w-5/6 m-auto h-16 px-2.5 content-center">
-      <div className="faq-logo col-span-2">
+    <div className="faq-header">
+      <div className="faq-logo">
         <Link to="/">
           <img src={faqLogo} className="faq-img" alt="faq logo" />
         </Link>
       </div>
-      <div className="faq-header__navigation flex justify-around px-4 items-center col-span-4">
-        {/* <BrowserRouter>
-          <Routes>
-            <Route path="/" >
-              <div className="faq-header__link">
-                <Link to="/">Bài viết</Link>
-              </div>
-            </Route>
-          </Routes>
-
-        </BrowserRouter> */}
+      <div className="faq-header__navigation">
         <div className="faq-header__link">
           <Link to="/">Bài viết</Link>
         </div>
@@ -39,13 +46,23 @@ function Header(props) {
           <Link to="/videocall">Video call</Link>
         </div>
       </div>
-      <div className="faq-header__search col-span-3 flex items-center">
-        <InputSearch />
-      </div>
-      <div className="faq-header__utils col-span-3 pl-5 flex items-center">
+
+      <div className="faq-header__utils">
+        <div className="faq-header__search">
+          {viewport.width >= 1000
+            ? <InputSearch eventFn={toSearchPage} />
+            : (
+              <div className="search-mini" onClick={expandSearchBox}>
+                <Icon name="search" sizeText="medium" />
+              </div>
+            )
+          }
+        </div>
         <Icon name="notification" sizeText="medium" />
         <Icon name="message" sizeText="medium" />
-        <Icon name="pencil" sizeText="medium" />
+        <Link to="/write">
+          <Icon name="pencil" sizeText="medium" color="var(--color-black--)" />
+        </Link>
         {/* <Link to="/dropdownmenu"> */}
         <div onClick={() => setOpen(!open)}>
           <Avatar margin="0 0 0 20px" size="small" />
@@ -102,6 +119,19 @@ function Header(props) {
         </div>
         {/* </Link> */}
       </div>
+
+      {
+        viewport.width < 1000 &&
+        (
+          <div ref={searchExpand} className="faq-search__input-box">
+            <input type="text" className="faq-search__input" placeholder="Bài viết, câu hỏi, tác giả..." onKeyUp={toSearchPage}/>
+            <Link to="/search">
+              <Button icon="search" value="Tìm kiếm" bgColor="var(--color-blue-primary--)" textColor="var(--color-white--)" onClickFn={toSearchPage} disable={!searchContent}/>
+            </Link>
+          </div>
+        )
+      }
+
     </div>
   );
 }

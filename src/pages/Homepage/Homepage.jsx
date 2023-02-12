@@ -1,18 +1,22 @@
-import React from "react";
+import React, {useState} from "react";
 import banner from "../../assets/clay-banks-hwLAI5lRhdM-unsplash.jpg";
 import PostOverview from "../../components/Post/Post";
 import Navbar from "../../components/Navbar/Navbar";
 import NewestQuestion from "../../components/NewestQuestion/NewestQuestion";
 import Heading from "../../components/Heading/Heading";
 import Pagination from '../../components/Pagination/Pagination';
+import "./Homepage.css";
 
 const Homepage = () => {
+  let PageSize = 10;
+  const [currentPage, setCurrentPage] = useState(1);
+
   return (
     <>
-      <img src={banner} className="faq-banner" alt="banner image" />
+      <img src={banner} className="faq-banner" alt="banner" />
       <Navbar />
-      <div className="w-5/6 xl:w-2/3 my-16 m-auto grid grid-cols-12 gap-8">
-        <div className="faq-corner col-span-8">
+      <div className="faq-hmpage">
+        <div className="faq-corner">
           <PostOverview
             fullName="Mai Đào Tuấn Thành"
             datetime="08/12/2022, 00:34 AM"
@@ -35,12 +39,18 @@ const Homepage = () => {
             bookmarked={false}
             followed={true} />
 
-          <Pagination />
+          <Pagination
+            className="pagination-bar"
+            currentPage={currentPage}
+            totalCount={20}
+            pageSize={PageSize}
+            onPageChange={page => setCurrentPage(page)}
+          />
 
         </div>
 
-        <div className="col-span-4">
-          <div className="flex items-center">
+        <div className="faq-hmpage__nwqt">
+          <div className="">
             <Heading title="CÂU HỎI MỚI NHẤT" size="medium" color="var(--color-blue-secondary--)" />
             <hr className="faq-underline"></hr>
           </div>

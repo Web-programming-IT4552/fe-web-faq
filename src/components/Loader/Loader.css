@@ -1,0 +1,123 @@
+.part:nth-child(odd):before,
+.part:nth-child(odd):after,
+.part:nth-child(even):before,
+.part:nth-child(even):after {
+  content: '';
+  width: 50%;
+  height: 50%;
+}
+.part:nth-child(odd),
+.part:nth-child(even) {
+  position: absolute;
+  display: flex;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.part:nth-child(odd):before,
+.part:nth-child(even):before {
+  border-radius: 50% 50% 0 0/50%;
+  transform: translateY(50%);
+}
+.part:nth-child(odd):after,
+.part:nth-child(even):after {
+  margin-top: 50%;
+  border-radius: 0 0 50% 50%/50%;
+  transform: translateY(-50%);
+}
+body {
+  position: relative;
+}
+.container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.text {
+  position: absolute;
+  -ms-writing-mode: tb-rl;
+  writing-mode: vertical-rl;
+  font-family: "ヒラギノ明朝 ProN W6", "HiraMinProN-W6", "HG明朝E", "ＭＳ Ｐ明朝", "MS PMincho", "MS 明朝", serif;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  left: 50%;
+  top: 50%;
+  transform: translate(-90%, -50%);
+  color: #a08d40;
+}
+.axis {
+  position: relative;
+  width: 16rem;
+  height: 16rem;
+  border-radius: 50%;
+  margin: auto;
+  -webkit-animation: rotate 4s infinite linear;
+  animation: rotate 4s infinite linear;
+}
+.part:nth-child(odd) {
+  background: linear-gradient(var(--color-blue-secondary--) 50%, var(--color-red-secondary--) 50%);
+}
+.part:nth-child(odd):before {
+  background: var(--color-red-secondary--);
+}
+.part:nth-child(odd):after {
+  background: var(--color-blue-secondary--);
+}
+.part:nth-child(even) {
+  background: linear-gradient(var(--color-blue-secondary--) 50%, var(--color-red-secondary--) 50%);
+}
+.part:nth-child(even):before {
+  background: var(--color-red-secondary--);
+}
+.part:nth-child(even):after {
+  background: var(--color-blue-secondary--);
+}
+.part:nth-child(1) {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) rotate(180deg);
+}
+.part:nth-child(2) {
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+}
+.part:nth-child(3) {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.part:nth-child(4) {
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%) rotate(225deg);
+}
+@-webkit-keyframes rotate {
+  25% {
+    transform: rotate(90deg) scale(0.8);
+  }
+  50% {
+    transform: rotate(180deg) scale(1);
+  }
+  75% {
+    transform: rotate(270deg) scale(0.8);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+@keyframes rotate {
+  25% {
+    transform: rotate(90deg) scale(0.8);
+  }
+  50% {
+    transform: rotate(180deg) scale(1);
+  }
+  75% {
+    transform: rotate(270deg) scale(0.8);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}

@@ -1,9 +1,12 @@
 import React, {useState} from "react";
 import "./Navbar.css";
 import Button from "../Button/Button";
+import {useNavigate} from "react-router-dom";
 
-// eslint-disable-next-line import/no-anonymous-default-export
-export default function () {
+
+export default function Navbar() {
+  const navigate = useNavigate();
+
   const [selected, setSelected] = useState(true);
 
   const handleSelected = e => {
@@ -12,22 +15,26 @@ export default function () {
     e.target.parentElement.classList.add('faq-navbar__nav--selected');
   }
 
+  const toWritePostPage = () => navigate('write');
+
   return (
-    <div className="faq-navbar w-full h-16  ">
-      <nav className="m-auto h-full w-3/4 lg:w-3/4 xl:w-1/2 flex items-center justify-around" onClick={e => handleSelected(e)}>
-        <div className="faq-navbar__nav faq-navbar__nav--selected">
+    <div className="faq-navbar">
+      <nav className="faq-navbar__main flex-center" style={{ height: '6rem' }} onClick={e => handleSelected(e)}>
+        <li className="faq-navbar__nav faq-navbar__nav--selected">
           <p>Mới nhất</p>
-        </div>
-        <div className="faq-navbar__nav">
+        </li>
+        <li className="faq-navbar__nav ">
           <p>Đang theo dõi</p>
-        </div>
-        <div className="faq-navbar__nav">
+        </li>
+        <li className="faq-navbar__nav ">
           <p>Blog</p>
-        </div>
-        <div className="faq-navbar__nav">
-          <p>Bookmark của tôi</p>
-        </div>
-        <Button icon="pen" value="VIẾT BÀI" bgColor="var(--color-blue-primary--)" iconColor="var(--color-black--)" />
+        </li>
+        <li className="faq-navbar__nav ">
+          <p>Bookmark</p>
+        </li>
+        <li onClick={toWritePostPage}>
+          <Button icon="pen" value="VIẾT BÀI" bgColor="var(--color-blue-secondary--)" iconColor="var(--color-black--)" />
+        </li>
       </nav>
     </div>
   );

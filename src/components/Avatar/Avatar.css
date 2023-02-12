@@ -9,24 +9,22 @@
 }
 
 .faq-avatar.faq-avatar--small {
-  width: 40px;
-  height: auto;
+  width: 4rem;
+  height: 4rem;
 }
 
 .faq-avatar.faq-avatar--medium {
+  width: 6rem;
+  height: 6rem;
+}
+
+.faq-avatar img {
   width: 60px;
   height: auto;
 }
 
 .faq-avatar.faq-avatar--big {
-  width: 100px;
-  height: auto;
+  width: 10rem;
+  height: 10rem;
 }
 
-.faq-avatar--small img {
-  width: 100%;
-}
-
-.faq-avatar--medium img {
-  width: 150%;
-}

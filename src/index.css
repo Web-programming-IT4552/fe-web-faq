@@ -1,26 +1,40 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 :root {
   --color-white--: #FFF;
   --color-black--: #000;
   --color-red-secondary--: #ea491b;
+  --color-red-tertiary--: #ffe8d0;
+  --color-blue-zero--: #3349af;
   --color-blue-primary--: #5c94ea;
   --color-blue-secondary--: #00b3d8;
+  --color-blue-tertiary--: #e2efff;
   --color-gray-zero--: #b9b9ba;
   --color-gray-primary--: #343434;
   --color-gray-secondary--: #dfdfdf;
   --color-gray-tertiary--: #9ca3af;
   --color-indigo-primary--: #1c0953;
 
-  --transition--: all .4s ease;
+  --transition--: all .3s ease;
 }
 
 body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-size: 1.4rem;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-black--)
+}
+
+html {
+  font-size: 62.5%;
+}
+
+ul {
+  padding-left: 0;
 }
 
 .clearfix {
@@ -33,6 +47,30 @@ body {
   display: table;
 }
 
-html {
-  /*font-size: 62.5%;*/
+/* Typo */
+.text-blur {
+  color: hsla(210, 8.3%, 23.5%, .8);
 }
+
+/* Box shadow */
+.shadow-light {
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+/* flex center */
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* disable button  */
+.disabledbutton {
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+.section {
+  margin: 8rem 0;
+}
+

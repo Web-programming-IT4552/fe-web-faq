@@ -1,13 +1,17 @@
 @import "../../index.css";
 
 .faq-footer {
-  padding: 30px 12.5%;
+  padding: 3rem 12.5%;
   background-color: var(--color-indigo-primary--);
   color: var(--color-white--);
+  margin-top: 6rem;
 }
 
 .faq-footer__top {
   border-bottom: 2px solid var(--color-gray-secondary--);
+  display: grid;
+  grid-template-columns: 40% 60%;
+  padding-bottom: 4rem;
 }
 
 .faq-footer__nav p:not(:first-of-type) {
@@ -20,12 +24,25 @@
   text-decoration: underline;
 }
 
+.faq-footer__media {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 .faq-footer__media li {
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 4rem;
+  height: 4rem;
   border: 1px solid var(--color-white--);
+  margin-right: 3rem;
+}
+
+.faq-footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

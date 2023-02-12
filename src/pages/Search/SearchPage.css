@@ -3,37 +3,33 @@
 .faq-search-layout {
   width: 80%;
   max-width: 1000px;
-  margin: 50px auto 0;
+  margin: 8rem auto 0;
 }
 
 .faq-search__input-box {
   display: grid;
-  grid-template-columns: 80% 20%;
+  grid-template-columns: 78% 20%;
   column-gap: 2%;
 }
 
-.faq-search__input-box .faq-search__input {
-  width: 100%;
-  height: 40px;
+.faq-search .faq-search__input-box .faq-search__input {
+  width: 90%;
+  height: 4rem;
   border: 1px solid #b5b8bc;
 }
 
-.faq-search__input-box .faq-search__input:focus {
+.faq-search .faq-search__input-box .faq-search__input:focus {
   border: 1px solid var(--color-blue-secondary--);
 }
 
 .faq-search__filter {
   margin: 30px 0 20px;
   border-bottom: 1px solid var(--color-gray-secondary--);
-  /*display: grid;*/
-  /*grid-template-columns: 30% 30%;*/
-  /*column-gap: 40%;*/
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   height: 50px;
   border-radius: 4px;
-  /*place-items: center;*/
 }
 
 .filter-types ul {
@@ -48,7 +44,7 @@
   font-size: 14px;
   padding: 10px 6px;
   cursor: pointer;
-
+  list-style: none;
   font-weight: 600;
   border-radius: 4px;
   transition: all .3s ease;
@@ -82,6 +78,11 @@
   z-index: 2;
   padding: 10px 0;
   transition: all .4s ease;
+}
+
+.sort-box ul {
+  padding-left: 0;
+  overflow: hidden;
 }
 
 .sort-box ul li {
@@ -124,11 +125,15 @@
   font-weight: 600;
   font-size: 18px;
   color: var(--color-blue-primary--);
+  margin-left: 4rem;
 }
 
 .faq-search__results {
   margin: 50px 0;
   padding: 0 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .faq-post-ov {
@@ -138,7 +143,7 @@
 }
 
 .faq-post-ov__bookmark {
-  display: none;
+  /*display: none;*/
 }
 
 .faq-search__results .faq-post-ov:last-of-type {
@@ -179,4 +184,11 @@
 
 .faq-search__more button.faq-btn {
   padding: 10px 100px !important;
+}
+
+.result-text {
+  text-decoration: underline;
+  font-weight: 500;
+  font-size: 1.6rem;
+  margin: 0 4px;
 }

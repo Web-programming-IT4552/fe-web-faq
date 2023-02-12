@@ -6,11 +6,11 @@ import HomepageLayout from "./layouts/HomepageLayout";
 import Homepage from "./pages/Homepage/Homepage";
 import BlogDetail from "./pages/BlogDetail/BlogDetail";
 import SearchPage from "./pages/Search/SearchPage";
+import WritePost from "./pages/WritePost/WritePost";
 import Login from "./pages/Login/Login";
 import Signin from "./pages/Signin/Signin";
 import MyProfile from "./pages/MyProfile/MyProfile";
 import DashboardLayout from "./layouts/DashboardLayout/DashboardLayout";
-
 function App() {
   return (
     <div className="App">
@@ -24,18 +24,24 @@ function App() {
               </HomepageLayout>
             }
           />
-          <Route path="/question" element={<MainLayout></MainLayout>} />
-          <Route
-            path="/search"
-            element={
-              <MainLayout>
-                <SearchPage />
-              </MainLayout>
-            }
-          />
-          <Route path="/videocall" element={<MainLayout />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signin" element={<Signin />} />
+          <Route path='/question' element={
+            <MainLayout>
+
+            </MainLayout>
+          }/>
+          <Route path="/search" element={
+            <MainLayout>
+              <SearchPage />
+            </MainLayout>
+          } />
+          <Route path="/write" element={
+            <MainLayout>
+              <WritePost />
+            </MainLayout>
+          } />
+          <Route path='/videocall' element={<MainLayout />} />
+          <Route path='/login' element={<Login/>} />
+          <Route path='/signin' element={<Signin/>} />
         </Routes>
         <Routes>
           <Route
