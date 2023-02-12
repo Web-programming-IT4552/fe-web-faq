@@ -9,7 +9,7 @@ import Comment from "../../components/Comment/Comment";
 import SimilarPost from "../../components/SimilarPost/SimilarPost";
 const BlogDetail = () => {
   return (
-    <div className="w-5/6 xl:w-2/3 my-16 m-auto grid grid-cols-12 gap-8">
+    <div className="faq-blog w-5/6 xl:w-2/3 my-16 m-auto grid grid-cols-12 gap-8">
       <div className="faq-corner col-span-8">
         <PostAuthor
           fullName="Mai Dao Tuan Thanh"

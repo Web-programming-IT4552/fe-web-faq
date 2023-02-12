@@ -1,0 +1,56 @@
+@import "../../index.css";
+
+.pagination ul {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  background: #fff;
+  padding: .8rem;
+  border-radius: 5rem;
+}
+
+.pagination ul li {
+  color: var(--color-blue-secondary--);
+  list-style: none;
+  line-height: 4.5rem;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.3s ease;
+}
+
+.pagination ul li.numb {
+  list-style: none;
+  height: 4.5rem;
+  width: 4.5rem;
+  margin: 0 .3rem;
+  line-height: 4.5rem;
+  border-radius: 50%;
+}
+
+.pagination ul li.numb.first {
+  margin: 0 3px 0 -5px;
+}
+
+.pagination ul li.numb.last {
+  margin: 0 -5px 0 3px;
+}
+
+.pagination ul li.dots {
+  font-size: 1.8rem;
+  cursor: default;
+}
+.pagination ul li.btn {
+  padding: 0 1rem;
+  border-radius: 5rem;
+}
+
+.pagination li.active,
+.pagination ul li.numb:hover,
+.pagination ul li:first-child:hover,
+.pagination ul li:last-child:hover {
+  color: #fff;
+  background: var(--color-blue-secondary--);
+}

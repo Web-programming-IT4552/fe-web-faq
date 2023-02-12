@@ -1,5 +1,9 @@
 @import "../../index.css";
 
+.faq-blog {
+  font-size: 1.4rem;
+}
+
 .faq-post-o {
   padding: 30px 0;
   max-width: 700px;
