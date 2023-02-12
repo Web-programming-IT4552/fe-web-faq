@@ -3,8 +3,10 @@ import "./Navbar.css";
 import Button from "../Button/Button";
 import {useNavigate} from "react-router-dom";
 
+
 export default function Navbar() {
   const navigate = useNavigate();
+
   const [selected, setSelected] = useState(true);
 
   const handleSelected = e => {

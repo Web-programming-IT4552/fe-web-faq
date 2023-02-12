@@ -14,12 +14,17 @@
 }
 
 .faq-avatar.faq-avatar--medium {
+  width: 6rem;
+  height: 6rem;
+}
+
+.faq-avatar img {
+  width: 60px;
+  height: auto;
+}
+
+.faq-avatar.faq-avatar--big {
   width: 10rem;
   height: 10rem;
 }
 
-.faq-avatar img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-}

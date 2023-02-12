@@ -19,7 +19,8 @@ import {FaRegBookmark, FaBookmark, FaUserAlt, FaLock, FaPencilAlt} from "react-i
 import {BsFillPencilFill, BsFacebook, BsFillQuestionCircleFill, BsTrash} from "react-icons/bs";
 import {HiUserAdd, HiDotsHorizontal} from "react-icons/hi";
 import {FiSearch} from "react-icons/fi";
-
+import {GoSignOut} from "react-icons/go";
+import {RiPagesLine} from "react-icons/ri";
 import "./Icon.css";
 
 const sizeOpj = {
@@ -60,6 +61,8 @@ const icons = {
   trash: BsTrash,
   pendesc: FaPencilAlt,
   post: AiOutlineExport
+  signout: GoSignOut,
+  content: RiPagesLine,
 }
 
 function Icon({ name, sizeText, color }) {

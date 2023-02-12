@@ -5,6 +5,7 @@ import "./SearchPage.css";
 import Icon from "../../components/Icon/Icon";
 import Loader from "../../components/Loader/Loader";
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default function () {
   const typesRef = useRef();
   const sortTypeRef = useRef();

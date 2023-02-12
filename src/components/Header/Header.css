@@ -1,3 +1,4 @@
+
 .faq-header {
   display: grid;
   grid-template-columns: 10% 30% 60%;
@@ -13,9 +14,13 @@
 
 .faq-logo {
   width: 4rem;
+  }
+.faq-img {
+  width: 3rem;
   height: auto;
   margin: 0 auto;
 }
+
 
 .faq-header__navigation {
   font-weight: 500;
@@ -39,6 +44,7 @@
   color: var(--color-black--);
   line-height: 4rem;
   font-weight: 500;
+  transition: all 0.2s ease;
 }
 
 .faq-header__navigation .faq-header__link:hover {
@@ -138,4 +144,79 @@
   .faq-header__utils .faq-header__search {
     width: unset;
   }
+}
+
+.drop-down {
+  min-width: 150px;
+  max-width: 300px;
+  background-color: #fff;
+  box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
+  transform-origin: center top;
+  z-index: 2013;
+  position: absolute;
+  top: 64px;
+  left: 1010px;
+}
+
+.drop-down.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: 0.3s ease;
+}
+
+.drop-down.inactive {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
+  transition: 0.3s ease;
+}
+
+
+.drop-down-menu {
+  display: flex;
+  /* margin-bottom: 10px; */
+  padding: 5px 10px;
+}
+
+.info-change__name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0a5bd8;
+}
+
+.info-change__username {
+  color: #808080;
+}
+
+.button__edit {
+  padding: 2px 10px 2px 10px;
+  background-color: #2d8df0;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.button__edit:hover {
+  background-color: #5da0e6;
+}
+
+.drop-down-menu-item {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 5px;
+  font-size: 1.1rem;
+  padding: 5px 10px;
+}
+
+.drop-down-menu-item:hover {
+  background-color: #e3e3e3;
+}
+
+.menu-item__text {
+  margin-left: 10px;
+  color: #6d6d6d;
+}
+
+.menu-info {
+  padding-right: 5px;
 }

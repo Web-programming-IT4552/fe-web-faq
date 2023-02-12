@@ -4,7 +4,10 @@ import Header from "../components/Header/Header";
 const HomepageLayout = (props) => {
   return (
     <div>
-      <Header />
+      <Header 
+        name="Mai Đào Tuấn Thành"
+        username="Thanh_dao"
+      />
         {props.children}
       <Footer />
     </div>

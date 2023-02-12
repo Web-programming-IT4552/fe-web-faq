@@ -1,24 +1,28 @@
-import './App.css';
+import "./App.css";
 
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import MainLayout from './layouts/MainLayout';
-import HomepageLayout from './layouts/HomepageLayout';
-import Homepage from './pages/Homepage/Homepage';
-import BlogDetail from './pages/BlogDetail/BlogDetail';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import MainLayout from "./layouts/MainLayout";
+import HomepageLayout from "./layouts/HomepageLayout";
+import Homepage from "./pages/Homepage/Homepage";
+import BlogDetail from "./pages/BlogDetail/BlogDetail";
 import SearchPage from "./pages/Search/SearchPage";
-import Login from './pages/Login/Login';
-import Signin from './pages/Signin/Signin';
 import WritePost from "./pages/WritePost/WritePost";
-
+import Login from "./pages/Login/Login";
+import Signin from "./pages/Signin/Signin";
+import MyProfile from "./pages/MyProfile/MyProfile";
+import DashboardLayout from "./layouts/DashboardLayout/DashboardLayout";
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={
-            <HomepageLayout>
-              <Homepage />
-            </HomepageLayout>}
+          <Route
+            path="/"
+            element={
+              <HomepageLayout>
+                <Homepage />
+              </HomepageLayout>
+            }
           />
           <Route path='/question' element={
             <MainLayout>
@@ -40,15 +44,30 @@ function App() {
           <Route path='/signin' element={<Signin/>} />
         </Routes>
         <Routes>
-          <Route path='/blog/1' element={
-            <MainLayout>
-              <BlogDetail/>
-            </MainLayout>
-          }/>
+          <Route
+            path="/dashboard/my-profile"
+            element={
+              <HomepageLayout>
+                <DashboardLayout>
+                  <MyProfile />
+                </DashboardLayout>
+              </HomepageLayout>
+            }
+          ></Route>
+        </Routes>
+        <Routes>
+          <Route
+            path="/blog/1"
+            element={
+              <MainLayout>
+                <BlogDetail />
+              </MainLayout>
+            }
+          />
         </Routes>
       </BrowserRouter>
     </div>
-  )
+  );
 }
 
 export default App;
