@@ -56,10 +56,15 @@ function Login() {
           return res.json();
         })
         .then((resp) => {
-          console.log(resp);
+          if (resp.email) {
+            toast.success("Login successfull!");
+            console.log(resp);
+          } else {
+            toast.error("Incorrect account or password!");
+          }
         })
         .catch((err) => {
-          toast.error("Incorrect account or password ");
+          toast.error("Incorrect account or password!");
         });
     }
   };
