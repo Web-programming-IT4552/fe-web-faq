@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import banner from "../../assets/clay-banks-hwLAI5lRhdM-unsplash.jpg";
 import PostOverview from "../../components/Post/Post";
 import Navbar from "../../components/Navbar/Navbar";
@@ -8,9 +8,12 @@ import Pagination from '../../components/Pagination/Pagination';
 import "./Homepage.css";
 
 const Homepage = () => {
+  let PageSize = 10;
+  const [currentPage, setCurrentPage] = useState(1);
+
   return (
     <>
-      <img src={banner} className="faq-banner" alt="banner image" />
+      <img src={banner} className="faq-banner" alt="banner" />
       <Navbar />
       <div className="faq-hmpage">
         <div className="faq-corner">
@@ -36,7 +39,13 @@ const Homepage = () => {
             bookmarked={false}
             followed={true} />
 
-          <Pagination />
+          <Pagination
+            className="pagination-bar"
+            currentPage={currentPage}
+            totalCount={20}
+            pageSize={PageSize}
+            onPageChange={page => setCurrentPage(page)}
+          />
 
         </div>
 

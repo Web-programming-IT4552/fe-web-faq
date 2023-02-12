@@ -13,7 +13,7 @@ import {
   AiOutlineSmile,
   AiOutlineCamera,
   AiOutlineSend,
-  AiFillGoogleCircle, AiOutlineClose, AiFillTags, AiOutlineExport
+  AiFillGoogleCircle, AiOutlineClose, AiFillTags, AiOutlineExport, AiOutlineLeft, AiOutlineRight
 } from "react-icons/ai";
 import {FaRegBookmark, FaBookmark, FaUserAlt, FaLock, FaPencilAlt} from "react-icons/fa";
 import {BsFillPencilFill, BsFacebook, BsFillQuestionCircleFill, BsTrash} from "react-icons/bs";
@@ -43,6 +43,8 @@ const icons = {
   message: AiFillMessage,
   setting: AiFillSetting,
   arrow_down: AiOutlineDown,
+  arrow_left: AiOutlineLeft,
+  arrow_right: AiOutlineRight,
   emoji: AiOutlineSmile,
   camera: AiOutlineCamera,
   send: AiOutlineSend,

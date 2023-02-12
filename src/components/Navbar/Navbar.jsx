@@ -1,10 +1,9 @@
-import React, {useState} from "react";
+import React from "react";
 import "./Navbar.css";
 import Button from "../Button/Button";
 import {useNavigate} from "react-router-dom";
 
-export default function () {
-  const [selected, setSelected] = useState(true);
+export default function Navbar() {
   const navigate = useNavigate();
   const handleSelected = e => {
     if(e.target.nodeName === 'LI' || e.target.nodeName === 'P') {
@@ -34,7 +33,7 @@ export default function () {
           <p>Bookmark</p>
         </label>
         <label onClick={toWritePostPage}>
-          <Button icon="pen" value="VIẾT BÀI" bgColor="var(--color-blue-primary--)" iconColor="var(--color-black--)" />
+          <Button icon="pen" value="VIẾT BÀI" bgColor="var(--color-blue-secondary--)" iconColor="var(--color-black--)" />
         </label>
         <div className="tab"></div>
 
