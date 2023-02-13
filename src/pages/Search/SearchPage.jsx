@@ -7,7 +7,7 @@ import Loader from "../../components/Loader/Loader";
 import {token} from "../../service/auth";
 import {toast} from "react-toastify";
 import {useLocation} from "react-router-dom";
-
+import parse from "html-dom-parser";
 // eslint-disable-next-line import/no-anonymous-default-export
 export default function () {
   const { state } = useLocation();
@@ -132,7 +132,7 @@ export default function () {
                       comments="34"
                       bookmarked={true}
                       followed={true}
-                      content={p.content}
+                      content={parse(p.content)}
                     />
                   )
                 }
