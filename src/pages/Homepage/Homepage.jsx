@@ -45,6 +45,7 @@ const Homepage = () => {
     fetch(`${HOST}/post/get?page=${currentPage}`, requestOptions)
       .then(response => response.json())
       .then(result => {
+        console.log(result)
         setPostData(prevData => prevData = result.data.slice((currentPage - 1)  * PageSize, currentPage * PageSize - 1));
         setTotalCount(result.data.length);
         setSpinner(false);

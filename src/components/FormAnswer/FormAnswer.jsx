@@ -41,14 +41,16 @@ const FormAnswer = (props) => {
                 return response.json()
             })
             .then(result => {
-                if(result.post_id) {
-                    toast.success("Create comment successfull!")
+                if (result.message === "Bad Word"){
+                    toast.error("Bad Word!")
+                    console.log(result)
+                }  else {
+                    toast.success("Create comment success!")
                     console.log(result)
 
-                } else {
-                    toast.error("Create comment failed!")
+                    window.location.reload()
                 }
-                window.location.reload()
+
                 console.log(result)
             })
             .catch(error => console.log('error', error));

@@ -7,9 +7,10 @@ import Heading from "../../components/Heading/Heading";
 import "./BlogDetail.css";
 import Comment from "../../components/Comment/Comment";
 import SimilarPost from "../../components/SimilarPost/SimilarPost";
-import {useState, useEffect} from "react";
+import React, {useState, useEffect} from "react";
 import getBlog from "./../../service/blog";
 import {useParams} from "react-router-dom";
+import {ToastContainer} from "react-toastify";
 
 const BlogDetail = () => {
     const [name, setName] = useState("");
@@ -66,7 +67,7 @@ const BlogDetail = () => {
                 </div>
                 <div></div>
             </div>
-
+            <ToastContainer/>
             <div className="col-span-12" style={{padding: "0 10%"}}>
                 <div className="faq-post">
                     <p className="faq-post-title">Bài viết liên quan</p>
