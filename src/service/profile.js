@@ -1,32 +1,20 @@
+const getProfile = async () => {
+    const myHeaders = new Headers();
+    myHeaders.append("Authorization", "Bearer " + localStorage.getItem("access_token"));
 
-const getProfile = () => {
-    var myHeaders = new Headers();
-    let result = ""
-    myHeaders.append("Authorization", localStorage.getItem("access_token") || "");
-
-    var requestOptions = {
+    const requestOptions = {
         method: 'GET',
         headers: myHeaders,
+        redirect: 'follow'
     };
-
-    fetch("https://hedspi.dev/user/profile", requestOptions)
-        .then(response => {
-            if (response.statusCode === 200) {
-                return response.json();
-            } else {
-                return {
-                    message: "Invalid"
-                }
-            }
-
-
-        })
-        .then(r => {
-
-            result = r;
-            console.log(r)
-        })
-        .catch (error => console.log());
-        return result;
+    try {
+        const response = await fetch("https://hedspi.dev/user/profile", requestOptions);
+        if (!response.ok) {
+            throw new Error(response.status + "");
+        }
+        return await response.json();
+    } catch (error) {
+        return null;
+    }
 }
 export default getProfile
