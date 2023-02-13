@@ -31,29 +31,29 @@ const PostAuthor = (props) => {
         <span className="date_time">{datetime}</span>
         <div className="icon-flex">
           <div className="icon-of-author">
-            <span >
+            <span className="icon-of-post__author">
               <Icon name="follow" sizeText="small" />
             {followers}
             </span>
-            <span>
+            <span className="icon-of-post__author">
               <Icon name="question" sizeText="small" />
               {questions}
             </span>
-            <span>
+            <span className="icon-of-post__author">
               <Icon name="pencil" sizeText="small" />
               {posts}
             </span>
           </div>
           <div className="icon-of-post">
-            <span className="">
+            <span className="icon-of-post__author">
               <Icon name="view" sizeText="small" />
               {views}
             </span>
-            <span>
+            <span className="icon-of-post__author">
               <Icon name="bookmark" sizeText="small" />
               {bookmark}
             </span>
-            <span>
+            <span className="icon-of-post__author">
               <Icon name="comment" sizeText="small" />
               {comments}
             </span>
