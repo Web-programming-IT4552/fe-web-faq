@@ -20,6 +20,7 @@ const Homepage = () => {
   const [admin, setAdmin] = useState(false);
   const [spinner, setSpinner] = useState(false);
 
+
   useEffect(() => {
     setSpinner(true);
     getPosts();
@@ -62,8 +63,8 @@ const Homepage = () => {
           spinner ? <Loader /> :
             (
               <div className="faq-corner">
-                {postData.map(p => <PostOverview
-                  fullName={p.username}
+                { postData && postData.map(p => <PostOverview
+                  fullName={p.name}
                   datetime={p?.created_at}
                   title={p.title}
                   tags={["japanese", "share", "learning"]}

@@ -19,6 +19,8 @@ export default function () {
   const [type, setType] = useState("Bài viết");
   const [sortSearch, setSortSearch] = useState("Phù hợp nhất");
   const [resultText, setResultText] = useState("");
+  const [postData, setPostData] = useState([]);
+  const [totalResult, setTotalResult] = useState(0);
 
   console.log("state: ", state);
 
@@ -67,8 +69,11 @@ export default function () {
     fetch(`${HOST}/post/search`, requestOptions)
       .then(response => response.json())
       .then(data => {
+        console.log(data);
         setSpinner(false);
         setResultText(searchInput);
+        setPostData(prevData => prevData = data.results);
+        setTotalResult(data.total_results);
         console.log("data: ", data);
       })
       .catch(error => {
@@ -113,99 +118,25 @@ export default function () {
         {spinner ? <Loader /> :
           (
             <div>
-              <div className="faq-search__total"><span className="total">{'1,407'}</span> kết quả "<span className="result-text">{resultText}</span>" </div>
+              <div className="faq-search__total"><span className="total">{totalResult}</span> kết quả "<span className="result-text">{resultText}</span>" </div>
               <div className="faq-search__results">
-                <Post
-                  fullName="Mai Đào Tuấn Thành"
-                  datetime="08/12/2022, 00:34 AM"
-                  title="Làm chủ N1 trong 30 ngày :)"
-                  tags={['kinh nghiệm', 'chia sẻ', 'hiragana', 'kanji']}
-                  likes="43"
-                  views="123"
-                  comments="34"
-                  bookmarked={true}
-                  followed={true}
-                  content="
-                Việc copy giá trị trong Ruby thường cần thiết. Điều này có vẻ đơn giản nếu object được copy
-                đơn giản. Nhưng nếu bạn phải copy một object với cấu trúc gồm nhiều mảng hoặc hash, bạn sẽ
-                gặp một số vấn đề.
-                Việc copy giá trị trong Ruby thường cần thiết. Điều này có vẻ đơn giản nếu object được copy
-                đơn giản. Nhưng nếu bạn phải copy một object với cấu trúc gồm nhiều mảng hoặc hash, bạn sẽ
-                gặp một số vấn
-                **Một số lời khuyên khi copy - paste:** * Đọc thêm một số cách giải quyết khác, không chỉ
-                cách được chấp nhận. * Nên gõ lại code thay vì copy - paste để khi gặp dòng code nào khó
-                hiểu, dành thêm thời gian để tìm hiểu nó.
-              "
-                />
+                { postData &&
+                  postData.map(p =>
+                    <Post
+                      fullName={p.name}
+                      datetime={p.created_at}
+                      title={p.title}
+                      tags={['kinh nghiệm', 'chia sẻ', 'hiragana', 'kanji']}
+                      likes="43"
+                      views={p.views}
+                      comments="34"
+                      bookmarked={true}
+                      followed={true}
+                      content={p.content}
+                    />
+                  )
+                }
 
-                <Post
-                  fullName="Mai Đào Tuấn Thành"
-                  datetime="08/12/2022, 00:34 AM"
-                  title="Làm chủ N1 trong 30 ngày :)"
-                  tags={['kinh nghiệm', 'chia sẻ', 'hiragana', 'kanji']}
-                  likes="43"
-                  views="123"
-                  comments="34"
-                  bookmarked={true}
-                  followed={true}
-                  content="
-                Việc copy giá trị trong Ruby thường cần thiết. Điều này có vẻ đơn giản nếu object được copy
-                đơn giản. Nhưng nếu bạn phải copy một object với cấu trúc gồm nhiều mảng hoặc hash, bạn sẽ
-                gặp một số vấn đề.
-                Việc copy giá trị trong Ruby thường cần thiết. Điều này có vẻ đơn giản nếu object được copy
-                đơn giản. Nhưng nếu bạn phải copy một object với cấu trúc gồm nhiều mảng hoặc hash, bạn sẽ
-                gặp một số vấn
-                **Một số lời khuyên khi copy - paste:** * Đọc thêm một số cách giải quyết khác, không chỉ
-                cách được chấp nhận. * Nên gõ lại code thay vì copy - paste để khi gặp dòng code nào khó
-                hiểu, dành thêm thời gian để tìm hiểu nó.
-              "
-                />
-
-                <Post
-                  fullName="Mai Đào Tuấn Thành"
-                  datetime="08/12/2022, 00:34 AM"
-                  title="Làm chủ N1 trong 30 ngày :)"
-                  tags={['kinh nghiệm', 'chia sẻ', 'hiragana', 'kanji']}
-                  likes="43"
-                  views="123"
-                  comments="34"
-                  bookmarked={true}
-                  followed={true}
-                  content="
-                Việc copy giá trị trong Ruby thường cần thiết. Điều này có vẻ đơn giản nếu object được copy
-                đơn giản. Nhưng nếu bạn phải copy một object với cấu trúc gồm nhiều mảng hoặc hash, bạn sẽ
-                gặp một số vấn đề.
-                Việc copy giá trị trong Ruby thường cần thiết. Điều này có vẻ đơn giản nếu object được copy
-                đơn giản. Nhưng nếu bạn phải copy một object với cấu trúc gồm nhiều mảng hoặc hash, bạn sẽ
-                gặp một số vấn
-                **Một số lời khuyên khi copy - paste:** * Đọc thêm một số cách giải quyết khác, không chỉ
-                cách được chấp nhận. * Nên gõ lại code thay vì copy - paste để khi gặp dòng code nào khó
-                hiểu, dành thêm thời gian để tìm hiểu nó.
-              "
-                />
-
-                <Post
-                  fullName="Mai Đào Tuấn Thành"
-                  datetime="08/12/2022, 00:34 AM"
-                  title="Làm chủ N1 trong 30 ngày :)"
-                  tags={['kinh nghiệm', 'chia sẻ', 'hiragana', 'kanji']}
-                  likes="43"
-                  views="123"
-                  comments="34"
-                  bookmarked={true}
-                  followed={true}
-                  content="
-                Việc copy giá trị trong Ruby thường cần thiết. Điều này có vẻ đơn giản nếu object được copy
-                đơn giản. Nhưng nếu bạn phải copy một object với cấu trúc gồm nhiều mảng hoặc hash, bạn sẽ
-                gặp một số vấn đề.
-                Việc copy giá trị trong Ruby thường cần thiết. Điều này có vẻ đơn giản nếu object được copy
-                đơn giản. Nhưng nếu bạn phải copy một object với cấu trúc gồm nhiều mảng hoặc hash, bạn sẽ
-                gặp một số vấn
-                **Một số lời khuyên khi copy - paste:** * Đọc thêm một số cách giải quyết khác, không chỉ
-                cách được chấp nhận. * Nên gõ lại code thay vì copy - paste để khi gặp dòng code nào khó
-                hiểu, dành thêm thời gian để tìm hiểu nó.
-              "
-                />
 
               </div>
               <div className="faq-search__more">
