@@ -24,11 +24,10 @@ function Header(props) {
     };
 
     const toSearchPage = (e) => {
-        console.log("event: ", e);
         setSearchContent((prevCt) => (prevCt = e.target.value));
         if (e.target.value && e.key === "Enter") {
             expandSearchBox();
-            navigate("/search");
+            navigate("/search", { state: searchContent });
         }
     };
 

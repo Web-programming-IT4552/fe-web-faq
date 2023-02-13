@@ -3,10 +3,11 @@ import "./WritePost.css";
 import Icon from "../../components/Icon/Icon";
 import TextEditor from "../../components/TextEditor/TextEditor";
 import Button from "../../components/Button/Button";
-import Heading from "../../components/Heading/Heading";
-
+import {toast} from "react-toastify";
+import {token} from "../../service/auth";
 
 export default function WritePost() {
+  const HOST = process.env.REACT_APP_HOST;
   const ulRef = useRef();
   const inputRef = useRef();
   const titleRef = useRef();
@@ -64,30 +65,47 @@ export default function WritePost() {
 
   const post = () => {
     if(titleRef?.current?.value && tags.length && filterHTML.length >= 20) {
-      const requestOptions = {
+      let myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+      myHeaders.append("Authorization", `Bearer ${token}`);
+
+      let raw = JSON.stringify({
+        // title: titleRef.current?.value,
+        // tags,
+        // content: editorData
+        "title": "test",
+        "content": "test",
+        "type": "post",
+      });
+
+      let requestOptions = {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          title: titleRef.current?.value,
-          tags,
-          content: editorData
-        }),
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
       };
 
-      fetch("https://hedspi.dev/post/create", requestOptions)
+      fetch(`${HOST}/post/create`, requestOptions)
         .then(response => response.json())
-        .then(data => console.log(data));
-        
+        .then(data => {
+          if(data.message) {
+            toast.success("Viết bài thành công");
+          }
+          else toast.error("Viết bài thất bại");
+        })
+        .catch(error => {
+          toast.error("Viết bài thất bại");
+        });
     }
   }
 
   return (
     <form className="faq-wrpost" onSubmit={e => e.preventDefault()}>
-      <h1>Chia sẻ hoặc hỏi những gì bạn đang thắc mắc</h1>
+      <h1>Chia sẻ những kiến thức của bạn</h1>
       <div className="faq-wrpost__section shadow-light">
         <h3 className="faq-wrpost__heading">Tiêu đề</h3>
         <p className="faq-wrpost__tip text-blur">
-          + Cụ thể và tưởng tượng bạn đang đặt câu hỏi cho người khác.
+          + Cụ thể và dễ hiểu.
         </p>
         <input ref={titleRef} className="faq-wrpost__input" placeholder="VD: Sự khác biệt giữa ごめん và すみません ?" />
       </div>
@@ -119,7 +137,7 @@ export default function WritePost() {
       <div className="faq-wrpost__section shadow-light">
         <h3 className="faq-wrpost__heading"><Icon name="pendesc" sizeText="small" />Mô tả</h3>
         <p className="faq-wrpost__tip text-blur" style={{marginBottom: 10}}>
-          + Mô tả câu hỏi / viết nội dung bạn muốn chia sẻ trong blog. Tối thiểu 20 ký tự.
+          + Mô tả nội dung bạn muốn chia sẻ trong bài post. Tối thiểu 20 ký tự.
         </p>
         <div className="faq-editor">
           <TextEditor passEditorData={setEditorData} />
