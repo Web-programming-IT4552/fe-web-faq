@@ -16,7 +16,6 @@ export default function Navbar() {
   }
 
   const toWritePostPage = () => navigate('write');
-
   return (
     <div className="faq-navbar">
       <nav className="faq-navbar__main flex-center" style={{ height: '6rem' }} onClick={e => handleSelected(e)}>

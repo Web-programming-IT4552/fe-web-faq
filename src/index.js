@@ -1,14 +1,19 @@
-import React, { Children } from 'react';
+import React, {Children, useEffect} from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import addView from "./service/view";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+(async () => {
+    await addView();
+})();
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <React.StrictMode>
+        <App/>
+    </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
