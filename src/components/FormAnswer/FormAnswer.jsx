@@ -21,9 +21,10 @@ const FormAnswer = (props) => {
         myHeaders.append("Authorization", "Bearer " + token);
         myHeaders.append("Content-Type", "application/json");
         e.preventDefault();
+
         var raw = JSON.stringify({
-            "post_id": {id},
-            "content": {commentAction},
+            "post_id": id,
+            "content": commentAction,
             "parent_id": null
         });
 
@@ -43,9 +44,11 @@ const FormAnswer = (props) => {
                 if(result.post_id) {
                     toast.success("Create comment successfull!")
                     console.log(result)
+
                 } else {
                     toast.error("Create comment failed!")
                 }
+                window.location.reload()
                 console.log(result)
             })
             .catch(error => console.log('error', error));

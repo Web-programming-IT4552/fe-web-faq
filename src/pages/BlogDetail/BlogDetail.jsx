@@ -20,7 +20,6 @@ const BlogDetail = () => {
     const [comment, setComment] = useState([]);
     const [count_comment, setCount_Comment] = useState([]);
     const [count_view, setCount_View] = useState([]);
-
     let {id} = useParams();
     console.log(id)
     useEffect(() => {
@@ -141,7 +140,7 @@ const BlogDetail = () => {
                     <Comment
                         datetime={c.updated_at}
                         comment={c.content}
-                        fullName="Mai Dao Tuan Thanh"
+                        fullName={c.name}
                     />
                 ))
                 }
