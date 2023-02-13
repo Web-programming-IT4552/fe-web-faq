@@ -2,8 +2,8 @@
 .faq-header {
   display: grid;
   grid-template-columns: 10% 30% 60%;
-  font-size: 1.8rem;
-  height: 6rem;
+  font-size: 1.5rem;
+  height: 8rem;
   place-items: center;
   color: var(--color-black--);
   position: relative;
@@ -219,4 +219,9 @@
 
 .menu-info {
   padding-right: 5px;
+}
+
+.link-login-and-logout {
+  width: 165px;
+  margin-left: 100px;
 }
