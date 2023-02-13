@@ -5,6 +5,7 @@ import "./Login.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Icon from "../../components/Icon/Icon";
+import getProfile from './../../service/profile';
 
 function Login() {
   // React States
@@ -12,43 +13,17 @@ function Login() {
   const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
-    let myHeaders = new Headers();
-    fetch("https://hedspi.dev/user/login", requestOptions)
-      .then((response) => response.text())
-      .then((result) => console.log(result))
-      .catch((error) => console.log("error", error));
-    myHeaders.append("Content-Type", "application/json");
-    myHeaders.append("Accept", "application/json");
-
-    myHeaders.append("Access-Control-Allow-Origin", "https://hedspi.dev");
-    myHeaders.append("Access-Control-Allow-Credentials", "true");
-
-    myHeaders.append("GET", "POST", "OPTIONS");
-    // const requestOptions = {
-    //   method: "POST",
-    //   headers: myHeaders,
-    //   body: JSON.stringify({ email, password }),
-    // };
-    // e.preventDefault();
-    // if (validate()) {
-    //   fetch("https://hedspi.dev/user/login", requestOptions)
-    //     .then((res) => {
-    //       return res.json();
-    //     })
-    //     .then(result => {
-    //       console.log(result);
-    //       localStorage.setItem("access_token", result.access_token);
-    //     })
-    //     .catch(err => {
-    //       toast.error("Incorrect account or password ");
-    //     });
-    // }
+    let headers = new Headers();
+    headers.append("Content-Type", "application/json");
+    headers.append("Accept", "application/json");
+    headers.append("Access-Control-Allow-Origin", "https://hedspi.dev");
+    headers.append("Access-Control-Allow-Credentials", "true");
+    headers.append("GET", "POST", "OPTIONS");
     const requestOptions = {
       method: "POST",
-      headers: myHeaders,
+      headers: headers,
       body: JSON.stringify({ email, password }),
     };
-
     e.preventDefault();
     if (validate()) {
       fetch("https://hedspi.dev/user/login", requestOptions)
@@ -57,14 +32,20 @@ function Login() {
         })
         .then((resp) => {
           if (resp.email) {
-            toast.success("Login successfull!");
-            console.log(resp);
+            toast.success("Login successful!");
+            localStorage.getItem("access_token", resp.access_token)
+            // window.location.href = 'http://localhost:3000/'
+            console.log(resp.access_token);
           } else {
             toast.error("Incorrect account or password!");
           }
         })
+        // window.location.href = 'http://localhost:3000/';
+        // localStorage.setItem('access_token', resp.data.access_token)
+
         .catch((err) => {
           toast.error("Incorrect account or password!");
+          console.log(err);
         });
     }
   };
@@ -81,6 +62,8 @@ function Login() {
     }
     return result;
   };
+   
+  getProfile()
   // Generate JSX code for error message
 
   // JSX code for login form

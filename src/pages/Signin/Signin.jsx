@@ -1,20 +1,69 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { Link, Navigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+
 import "./Signin.css";
 import Icon from "../../components/Icon/Icon";
 
 function Signin() {
   // React States
-
-  const handleSubmit = (event) => {
+  const [name, setName] = useState("");
+  // const [phone, setPhone] = useState(null);
+  const [email, setEmail] = useState("");
+  // const [address, setAddress] = useState(null);
+  // const [username, setUsername] = useState(null);
+  const [password, setPassword] = useState("");
+  const [password_confirmation, setConfirmPassword] = useState("");
+  const handleSubmit = (e) => {
     //Prevent page reload
-    event.preventDefault();
+    let headers = new Headers();
+    headers.append("Content-Type", "application/json");
+    headers.append("Accept", "application/json");
 
+    headers.append("Access-Control-Allow-Origin", "https://hedspi.dev");
+    headers.append("Access-Control-Allow-Credentials", "true");
+
+    headers.append("GET", "POST", "OPTIONS");
+
+    // var formdata = new FormData();
+    // formdata.append("name", { name });
+    // formdata.append("email", { email });
+    // formdata.append("password", { password });
+    // formdata.append("password_confirmation", { password_confirmation });
+    e.preventDefault();
+    fetch("https://hedspi.dev/user/register", {
+      method: "POST",
+      headers: headers,
+      body: JSON.stringify({ name, email, password, password_confirmation }),
+    })
+      .then((response) => {
+        response.json();
+      })
+      .then((resp) => {
+        if (resp.email) {
+          toast.success("Login successful!");
+          // console.log(resp.access_token);
+        } else {
+          toast.error("Incorrect account or password!");
+        }
+      })
+      // {
+      //   if (data.token) {
+      //     toast.success("Signin successful!");
+      //   } else {
+      //     toast.error("Signin failed!");
+      //   }
+
+      //   console.log(data);
+      // })
+      .catch((error) => {
+        toast.error("Signin failed!");
+        console.error(error);
+      });
   };
 
   // Generate JSX code for error message
-
 
   // JSX code for login form
   const renderForm = (
@@ -25,56 +74,65 @@ function Signin() {
             <input
               className="form-signin-container-detail__input"
               type="text"
-              name="name_account"
+              name="name"
               placeholder="Tên của bạn"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               required
             />
           </div>
-          <div className="form-signin-container-detail">
+          {/* <div className="form-signin-container-detail">
             <input
               className="form-signin-container-detail__input"
               type="text"
               name="name_account"
               placeholder="Số điện thoại"
+              value={phone}
               required
             />
-          </div>
-          <div className="form-signin-container-detail">
+          </div> */}
+          {/* <div className="form-signin-container-detail">
             <input
               className="form-signin-container-detail__input"
               type="text"
               name="name_account"
               placeholder="Địa chỉ"
+              value={address}
               required
             />
-          </div>
+          </div> */}
           <div className="form-signin-email-account">
             <div className="form-signin-container-detail">
               <input
                 className="form-signin-container-detail__input"
-                type="text"
+                type="email"
                 name="email"
                 placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 required
               />
             </div>
 
-            <div className="form-signin-container-detail">
+            {/* <div className="form-signin-container-detail">
               <input
                 className="form-signin-container-detail__input"
                 type="text"
                 name="name_account"
                 placeholder="Tên tài khoản"
+                value={username}
               />
-            </div>
+            </div> */}
           </div>
 
           <div className="form-signin-container-detail">
             <input
               className="form-signin-container-detail__input"
               type="password"
-              name="pass"
+              name="password"
               placeholder="Mật khẩu"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               required
             />
           </div>
@@ -83,15 +141,17 @@ function Signin() {
             <input
               className="form-signin-container-detail__input"
               type="password"
-              name="pass"
+              name="confirmPassword"
               placeholder="Xác nhận lại mật khẩu"
+              value={password_confirmation}
+              onChange={(e) => setConfirmPassword(e.target.value)}
               required
             />
           </div>
         </div>
         <div className="button-container">
           {/* <Link className="button-login" to="/"> */}
-            <button className="button-login">Đăng ký</button>
+          <button className="button-login">Đăng ký</button>
           {/* </Link> */}
         </div>
       </form>
@@ -101,11 +161,12 @@ function Signin() {
   return (
     <>
       <div className="wrap-container"></div>
+      <ToastContainer />
       <div className="app">
         <div className="signin-form">
           <div className="signin-form__webname">FAQ Forum</div>
           <div className="title">Đăng ký</div>
-            {renderForm}
+          {renderForm}
 
           <div className="route-signin">
             <Link to="/login"></Link>
