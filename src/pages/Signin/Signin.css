@@ -58,9 +58,9 @@ input[type="password"] {
 
 .signin-form__webname {
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 3.5rem;
   font-weight: 500;
-  margin: 5px 150px;
+  margin: 0px 160px;
 }
 
 .button-container {
@@ -70,7 +70,7 @@ input[type="password"] {
 
 .signin-form {
   background-color: rgb(235 235 235 / 70%);  
-  padding: 2rem;
+  padding: 4rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -84,7 +84,7 @@ input[type="password"] {
 }
 
 .title {
-  font-size: 1.2rem;
+  font-size: 2.2rem;
   font-weight: 500;
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -105,7 +105,7 @@ input[type="password"] {
   padding: 10px 10px;
   vertical-align: middle;
   align-items: center;
-  font-size: 1rem;
+  font-size: 2rem;
   width: 100%;
 }
 
@@ -117,7 +117,7 @@ input[type="password"] {
   display: flex;
   padding-top: 10px;
   padding-bottom: 10px;
-  font-size: 1rem;
+  font-size: 1.5signin-form__webnamerem;
   color: #0a5bd8;
 }
 
@@ -173,5 +173,5 @@ input[type="password"] {
 }
 
 .form-signin-email-account .form-signin-container-detail {
-  width: 47%;
+  width: 100%;
 }

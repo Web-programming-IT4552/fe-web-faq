@@ -5,20 +5,19 @@ import "./Login.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Icon from "../../components/Icon/Icon";
+import getProfile from './../../service/profile';
 
 function Login() {
   // React States
   const [email, setemail] = useState("");
   const [password, setPassword] = useState("");
-  
+
   const handleSubmit = (e) => {
     let headers = new Headers();
     headers.append("Content-Type", "application/json");
     headers.append("Accept", "application/json");
-
     headers.append("Access-Control-Allow-Origin", "https://hedspi.dev");
     headers.append("Access-Control-Allow-Credentials", "true");
-
     headers.append("GET", "POST", "OPTIONS");
     const requestOptions = {
       method: "POST",
@@ -27,18 +26,28 @@ function Login() {
     };
     e.preventDefault();
     if (validate()) {
-      fetch("https://hedspi.dev/core/login", requestOptions)
+      fetch("https://hedspi.dev/user/login", requestOptions)
         .then((res) => {
           return res.json();
         })
         .then((resp) => {
-          console.log(resp);
+          if (resp.email) {
+            toast.success("Login successful!");
+            localStorage.getItem("access_token", resp.access_token)
+            // window.location.href = 'http://localhost:3000/'
+            console.log(resp.access_token);
+          } else {
+            toast.error("Incorrect account or password!");
+          }
         })
+        // window.location.href = 'http://localhost:3000/';
+        // localStorage.setItem('access_token', resp.data.access_token)
+
         .catch((err) => {
-          toast.error("Incorrect account or password ");
+          toast.error("Incorrect account or password!");
+          console.log(err);
         });
     }
-
   };
 
   const validate = () => {
@@ -53,6 +62,8 @@ function Login() {
     }
     return result;
   };
+   
+  getProfile()
   // Generate JSX code for error message
 
   // JSX code for login form
