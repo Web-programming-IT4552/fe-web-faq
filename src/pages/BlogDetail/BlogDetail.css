@@ -6,7 +6,7 @@
 }
 
 .faq-corner {
-
+    margin: 0 auto;
 }
 
 .faq-post {
@@ -31,4 +31,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.icon-of-post__author {
+    display: flex;
 }

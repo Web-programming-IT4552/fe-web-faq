@@ -12,9 +12,15 @@
   display: flex;
 }
 
+.faq-post-o-header {
+  width: 100%;
+}
+
 .faq-post-o .faq-post-o__avatar {
   width: 50px;
 }
+
+
 
 .faq-post-o .faq-post-o__name {
   font-weight: 500;
@@ -87,7 +93,7 @@
 }
 
 .tag_name {
-  font-size: 0.75rem;
+  font-size: 1.25rem;
   opacity: 0.6;
   margin-left: 5px;
   margin-right: 10px;
@@ -115,7 +121,7 @@
 }
 
 .icon-of-author {
-
+  display: flex;
 }
 
 .icon-of-post {

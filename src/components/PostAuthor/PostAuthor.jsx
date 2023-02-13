@@ -18,13 +18,13 @@ const PostAuthor = (props) => {
   } = props;
 
   return (
-    <div className="faq-post-o grid grid-cols-12 gap-16">
+    <div className="faq-post-o gap-16">
       <div className="faq-post-o__avatar col-span-1">
         <Avatar size="medium" />
       </div>
-      <div className="col-span-10 text-left">
+      <div className="faq-post-o-header col-span-10 text-left">
         <span className="faq-post-o__name">{fullName}</span>
-        <span className="tag_name">@{userName}</span>
+        <span className="tag_name">{userName}</span>
         <button className="btn-follow">
           + Theo dõi
         </button>
