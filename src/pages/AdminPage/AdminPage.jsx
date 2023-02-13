@@ -1,13 +1,23 @@
-import React, {useState} from "react";
-import banner from "../../assets/clay-banks-hwLAI5lRhdM-unsplash.jpg";
-import PostOverview from "../../components/Post/Post";
-import Navbar from "../../components/Navbar/Navbar";
-import NewestQuestion from "../../components/NewestQuestion/NewestQuestion";
-import Heading from "../../components/Heading/Heading";
-import Pagination from '../../components/Pagination/Pagination';
+import React, {useEffect, useState} from "react";
 import "./AdminPage.css";
+import {getView} from "../../service/view";
+import getListUser from "../../service/user";
 
 const AdminPage = () => {
+    const [view, setView] = useState(0);
+    const [listUser, setListUser] = useState([]);
+    useEffect(() => {
+        (async () => {
+            setView(await getView());
+        })();
+    }, []);
+
+    useEffect(() => {
+        (async () => {
+            setListUser(await getListUser());
+        })();
+    }, []);
+
     return (
         <>
             <div className={"main-wrapper"}>
@@ -16,8 +26,7 @@ const AdminPage = () => {
             <div className={"main-wrapper flex"}>
                 <div className={"count-wrapper"}>
                     <div>
-                        <h2 className={"count-so"}>
-                            6000
+                        <h2 className={"count-so"}>{view}
                         </h2>
                         <span className={"count-text"}>Lượt xem</span>
                     </div>
@@ -76,22 +85,20 @@ const AdminPage = () => {
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td className={"th-id"}>1</td>
-                            <td className={"th-name"}>John Doe</td>
-                            <td className={"th-date"}>2022-01-01</td>
-                            <td className={"th-id"}>
-                                    <a href={"#"}>Khóa</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className={"th-id"}>1</td>
-                            <td className={"th-name"}>John Doe</td>
-                            <td className={"th-date"}>2022-01-01</td>
-                            <td className={"th-id"}>
-                                <a href={"#"}>Khóa</a>
-                            </td>
-                        </tr>
+                        {
+                            listUser.map((user, index) => {
+                                return (
+                                    <tr key={index}>
+                                        <td className={"th-id"}>{index + 1}</td>
+                                        <td className={"th-name"}>{user.name}</td>
+                                        <td className={"th-date"}>{user.created_at}</td>
+                                        <td className={"th-id"}>
+                                            <a href={"#"}>Khóa</a>
+                                        </td>
+                                    </tr>
+                                )
+                            })
+                        }
                         </tbody>
                     </table>
                 </div>
