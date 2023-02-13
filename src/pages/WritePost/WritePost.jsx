@@ -73,8 +73,8 @@ export default function WritePost() {
         // title: titleRef.current?.value,
         // tags,
         // content: editorData
-        "title": "test",
-        "content": "test",
+        "title": titleRef.current.value,
+        "content": editorData,
         "type": "post",
       });
 
