@@ -8,80 +8,111 @@ import Pagination from '../../components/Pagination/Pagination';
 import "./Homepage.css";
 import {Link, Navigate} from "react-router-dom";
 import {isAdmin} from "../../service/role";
+import {token} from "../../service/auth";
+import Loader from "../../components/Loader/Loader";
 
 const Homepage = () => {
-    let PageSize = 10;
-    const [currentPage, setCurrentPage] = useState(1);
-    const [admin, setAdmin] = useState(false);
-    useEffect(() => {
-        (async () => {
-            if (await isAdmin()) {
-                setAdmin(true);
-            }
-        })();
-    }, []);
-    return (
-        <>
-            {admin && <Navigate to="/dashboard"/>}
-            <img src={banner} className="faq-banner" alt="banner"/>
-            <Navbar/>
-            <div className="faq-hmpage">
-                <div className="faq-corner">
-                    <PostOverview
-                        fullName="Mai Đào Tuấn Thành"
-                        datetime="08/12/2022, 00:34 AM"
-                        title="Làm chủ N1 trong 30 ngày :)"
-                        tags={['kinh nghiệm', 'chia sẻ', 'hiragana', 'kanji']}
-                        likes="43"
-                        views="123"
-                        comments="34"
-                        bookmarked={true}
-                        followed={true}/>
+  let PageSize = 5;
+  const [totalCount, setTotalCount] = useState( 1);
+  const HOST = process.env.REACT_APP_HOST;
+  const [postData, setPostData] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [admin, setAdmin] = useState(false);
+  const [spinner, setSpinner] = useState(false);
 
-                    <PostOverview
-                        fullName="Nguyễn Thị Thúy"
-                        datetime="08/12/2022, 05:12 PM"
-                        title="Chia sẻ nguồn film anime và những tips hay khi nghe anime hoặc xem phim"
-                        tags={['phim', 'anime', 'chia sẻ', 'nghe']}
-                        likes="1987"
-                        views="12251"
-                        comments="107"
-                        bookmarked={false}
-                        followed={true}/>
+  useEffect(() => {
+    setSpinner(true);
+    getPosts();
+    (async () => {
+      if (await isAdmin()) {
+        setAdmin(true);
+      }
+    })();
+  }, [currentPage]);
 
-                    <Pagination
-                        className="pagination-bar"
-                        currentPage={currentPage}
-                        totalCount={20}
-                        pageSize={PageSize}
-                        onPageChange={page => setCurrentPage(page)}
-                    />
+  const getPosts = () => {
+    let myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("Authorization", `Bearer ${token}`);
 
-                </div>
+    let requestOptions = {
+      method: 'GET',
+      headers: myHeaders,
+      redirect: 'follow'
+    };
 
-                <div className="faq-hmpage__nwqt">
-                    <div className="">
-                        <Heading title="CÂU HỎI MỚI NHẤT" size="medium" color="var(--color-blue-secondary--)"/>
-                        <hr className="faq-underline"></hr>
-                    </div>
+    fetch(`${HOST}/post/get?page=${currentPage}`, requestOptions)
+      .then(response => response.json())
+      .then(result => {
+        setPostData(prevData => prevData = result.data.slice((currentPage - 1)  * PageSize, currentPage * PageSize - 1));
+        setTotalCount(result.data.length);
+        setSpinner(false);
 
-                    <NewestQuestion
-                        title="Cách không học mà vẫn giỏi tiếng Nhật ?"
-                        likes={12}
-                        views={87}
-                        comments={3}
-                        fullName="Nguyễn Thanh Tùng"/>
+      })
+      .catch(error => console.log('error', error));
+  }
 
-                    <NewestQuestion
-                        title="Tại sao chữ Kanji trong tiếng Nhật gần giống với chữ Hán của Trung Quốc ?"
-                        likes={22}
-                        views={197}
-                        comments={5}
-                        fullName="Hoàng Anh Tuấn"/>
-                </div>
-            </div>
-        </>
-    )
+  return (
+    <>
+      {admin && <Navigate to="/dashboard"/>}
+      <img src={banner} className="faq-banner" alt="banner"/>
+      <Navbar/>
+      <div className="faq-hmpage">
+        {
+          spinner ? <Loader /> :
+            (
+              <div className="faq-corner">
+                {postData.map(p => <PostOverview
+                  fullName={p.username}
+                  datetime={p?.created_at}
+                  title={p.title}
+                  tags={["japanese", "share", "learning"]}
+                  likes={12}
+                  views={p.views}
+                  comments={10}
+                  bookmarked={true}
+                  followed={24}/>)
+                }
+
+                <Pagination
+                  className="pagination-bar"
+                  currentPage={currentPage}
+                  totalCount={totalCount}
+                  pageSize={PageSize}
+                  onPageChange={page => {
+                    setCurrentPage(page);
+                    getPosts();
+                  }}
+                />
+
+              </div>
+            )
+        }
+
+
+        <div className="faq-hmpage__nwqt">
+          <div className="">
+            <Heading title="CÂU HỎI MỚI NHẤT" size="medium" color="var(--color-blue-secondary--)"/>
+            <hr className="faq-underline"></hr>
+          </div>
+
+          <NewestQuestion
+            title="Cách không học mà vẫn giỏi tiếng Nhật ?"
+            likes={12}
+            views={87}
+            comments={3}
+            fullName="Nguyễn Thanh Tùng"/>
+
+          <NewestQuestion
+            title="Tại sao chữ Kanji trong tiếng Nhật gần giống với chữ Hán của Trung Quốc ?"
+            likes={22}
+            views={197}
+            comments={5}
+            fullName="Hoàng Anh Tuấn"/>
+        </div>
+      </div>
+    </>
+  )
 }
 
 export default Homepage

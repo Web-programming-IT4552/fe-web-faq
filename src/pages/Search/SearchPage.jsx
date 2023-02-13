@@ -4,17 +4,26 @@ import Button from "../../components/Button/Button";
 import "./SearchPage.css";
 import Icon from "../../components/Icon/Icon";
 import Loader from "../../components/Loader/Loader";
+import {token} from "../../service/auth";
+import {toast} from "react-toastify";
+import {useLocation} from "react-router-dom";
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default function () {
+  const { state } = useLocation();
   const typesRef = useRef();
   const sortTypeRef = useRef();
-  const [searchInput, setSearchInput] = useState("");
+  const [searchInput, setSearchInput] = useState(state.toString());
   const [sortBox, setSortBox] = useState(false);
   const [isSending, setIsSending] = useState(false);
   const [type, setType] = useState("Bài viết");
   const [sortSearch, setSortSearch] = useState("Phù hợp nhất");
   const [resultText, setResultText] = useState("");
+
+  console.log("state: ", state);
+
+
+  const HOST = process.env.REACT_APP_HOST;
 
 
   const handleFilterType = (e, elRef, className) => {
@@ -31,26 +40,40 @@ export default function () {
     }
   }
 
-  console.log(`type: ${type}, sort: ${sortSearch}`);
 
   const [spinner, setSpinner] = useState(false);
 
   useEffect(() => {
     setSpinner(true);
     setIsSending(false);
-    setTimeout(() => {
-      fetch('/api/search', {
-        method: 'post',
-        body: JSON.stringify({
-          content: searchInput,
-          type,
-          sort: sortSearch
-        }),
-      }).then(function(data){
+    let myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("Authorization", `Bearer ${token}`);
+
+    let raw = JSON.stringify({
+      "content": searchInput,
+      "page": 1,
+      "type": "post",
+      "tsort": "newest"
+    });
+
+    let requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow'
+    };
+
+    fetch(`${HOST}/post/search`, requestOptions)
+      .then(response => response.json())
+      .then(data => {
         setSpinner(false);
         setResultText(searchInput);
+        console.log("data: ", data);
+      })
+      .catch(error => {
+        console.log(error);
       });
-    }, 1000);
   }, [isSending]);
 
   return (
