@@ -1,7 +1,7 @@
 @import "../../index.css";
 
 .faq-blog {
-  font-size: 1.4rem;
+  font-size: 1.8rem;
 }
 
 .faq-post-o {
@@ -9,11 +9,18 @@
   max-width: 700px;
   width: 100%;
   position: relative;
+  display: flex;
+}
+
+.faq-post-o-header {
+  width: 100%;
 }
 
 .faq-post-o .faq-post-o__avatar {
   width: 50px;
 }
+
+
 
 .faq-post-o .faq-post-o__name {
   font-weight: 500;
@@ -50,7 +57,7 @@
   color: var(--color-gray-primary--);
 }
 
-// ---------------------author---------------------
+---------------------author---------------------
 .grid {
   display: grid;
 }
@@ -60,7 +67,7 @@
 }
 
 .gap-16 {
-  gap: 4rem;
+  gap: 2rem;
 }
 
 .col-span-1 {
@@ -86,7 +93,7 @@
 }
 
 .tag_name {
-  font-size: 0.75rem;
+  font-size: 1.25rem;
   opacity: 0.6;
   margin-left: 5px;
   margin-right: 10px;
@@ -114,11 +121,12 @@
 }
 
 .icon-of-author {
-
+  display: flex;
 }
 
 .icon-of-post {
   margin-left: auto;
+  display: flex;
 }
 
 .faq-post-ov__tag {

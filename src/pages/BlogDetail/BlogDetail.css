@@ -1,9 +1,22 @@
-.faq-post{
-    margin-bottom: 80px;
+.faq-blog {
+    width: 83.33333%;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    margin: auto;
 }
 
+.faq-corner {
+    margin: 0 auto;
+}
+
+.faq-post {
+    margin-bottom: 80px;
+
+}
+
+
 .faq-post-title {
-    font-size: 1.25rem; 
+    font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 20px;
     margin-top: 50px;
@@ -12,4 +25,14 @@
 .faq-post-suggest {
     display: flex;
     justify-content: space-between;
+}
+
+.icon-of-post__author {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-of-post__author {
+    display: flex;
 }

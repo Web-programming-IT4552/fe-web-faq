@@ -7,13 +7,34 @@ import Heading from "../../components/Heading/Heading";
 import "./BlogDetail.css";
 import Comment from "../../components/Comment/Comment";
 import SimilarPost from "../../components/SimilarPost/SimilarPost";
+import { useState, useEffect } from "react";
+import getBlog from "./../../service/blog";
+
 const BlogDetail = () => {
+  const [name, setName] = useState("");
+  const [createTime, setCreateTime] = useState("");
+  const [view, setView] = useState("");
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  const [comment, setComment] = useState("");
+
+  useEffect(() => {
+    (async () => {
+      const profile = await getBlog();
+      //   console.log(profile.user)
+      setName(profile.data.name);
+      setTitle(profile.data.title);
+      setContent(profile.data.content);
+      setComment(profile.data.comment);
+      
+    })();
+  }, []);
   return (
-    <div className="faq-blog w-5/6 xl:w-2/3 my-16 m-auto grid grid-cols-12 gap-8">
-      <div className="faq-corner col-span-8">
+    <div className="faq-blog ">
+      <div className="faq-corner ">
         <PostAuthor
-          fullName="Mai Dao Tuan Thanh"
-          userName="Thanhdao"
+          fullName={name}
+          userName=""
           datetime="08/12/2022, 00:34 AM"
           followers="20"
           questions="10"
@@ -23,25 +44,23 @@ const BlogDetail = () => {
           comments="10"
         />
         <PostScript
-          title="Lộ trình học tiếng Nhật từ N5-N2 trong 8 tháng"
+          title={title}
           tags={["kinh nghiệm", "chia sẻ", "hiragana", "kanji"]}
-          description="Từ trình độ JLPT N3 lên N2 phải cần rất nhiều thời gian và công sức. Giới hạn kiến thức N3 là: Kanji : ~650 chữ, Từ vựng : 3700 từ. Trong khi, giới hạn kiến thức N2 là Kanji : ~1000 chữ, Từ vựng : 6000 từ. Như vậy các bạn có thể thấy lượng kiến thức N2 nhiều gần gấp đôi so với trình độ N3. Vậy phải học như thế nào cho hiệu quả nhất, hôm nay Japan IT Works sẽ chia sẻ cho các bạn nhé!
-        "
+          description={content}
         />
-
-        <div></div>
-      </div>
-
-      <div className="col-span-4">
-        <Bookmark content="BOOKMARK BÀI VIẾT NÀY" />
-        <TableOfContents>
+        <div className="col-span-4">
+          <Bookmark content="BOOKMARK BÀI VIẾT NÀY" />
+          {/* <TableOfContents>
           <Heading
             title="MỤC LỤC"
             size="medium"
             color="var(--color-blue-secondary--)"
           />
-        </TableOfContents>
+        </TableOfContents> */}
+        </div>
+        <div></div>
       </div>
+
       <div className="col-span-12">
         <div className="faq-post">
           <p className="faq-post-title">Bài viết liên quan</p>

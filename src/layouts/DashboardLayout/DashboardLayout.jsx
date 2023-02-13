@@ -21,38 +21,13 @@ const DashboardLayout = (props) => {
         <div className="dashboard-profile__title">DASHBOARD</div>
         <div>
           <ul>
-            {/* <Link>
-              <li className={isMoved ? "move-right" : ""} onClick={handleClick}>
-                Thông tin cá nhân
-              </li>
-            </Link>
-            <Link>
-              <li className={isMoved ? "move-right" : ""} onClick={handleClick}>
-                Bài viết
-              </li>
-            </Link>
-            <Link>
-              <li className={isMoved ? "move-right" : ""} onClick={handleClick}>
-                Bookmark
-              </li>
-            </Link>
-            <Link>
-              <li className={isMoved ? "move-right" : ""} onClick={handleClick}>
-                Người theo dõi
-              </li>
-            </Link>
-            <Link>
-              <li className={isMoved ? "move-right" : ""} onClick={handleClick}>
-                Đang theo dõi
-              </li>
-            </Link> */}
             {items.map((item) => (
               <li
                 key={item.id}
                 className={selectedItem === item.id ? "move-right" : ""}
                 onClick={() => handleItemClick(item.id)}
               >
-                <Link to={`/dashboard/${item.path}`}>{item.id}</Link>
+                <Link className="dashboard-profile__option" to={`/dashboard/${item.path}`}>{item.id}</Link>
               </li>
             ))}
           </ul>

@@ -9,7 +9,8 @@
 }
 
 .dashboard-profile {
-  width: 16%;
+  font-size: 1.25rem;
+  width: 13%;
   float: left;
   margin-left: 130px;
   border: 1px solid #dcdcdc;
@@ -17,14 +18,18 @@
   background-color: #fff;
 }
 
+.dashboard-profile__option {
+  font-size: 1.5rem;
+}
+
 .dashboard-children {
   margin-left: 300px;
 }
 
 .dashboard-profile__title {
-  font-size: 1.1rem;
   font-weight: bold;
   color: #0a5bd8;
+  font-size: 2.1rem;
 }
 
 .dashboard-profile ul li {
