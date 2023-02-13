@@ -8,7 +8,7 @@ const getBlog = async (id) => {
         redirect: 'follow'
     };
     try {
-        const response = await fetch(`https://hedspi.dev/post/get/2` , requestOptions);
+        const response = await fetch(`https://hedspi.dev/post/get/${id}` , requestOptions);
         if (!response.ok) {
             throw new Error(response.status + "");
         }

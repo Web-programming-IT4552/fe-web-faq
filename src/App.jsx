@@ -62,7 +62,7 @@ function App() {
                 </Routes>
                 <Routes>
                     <Route
-                        path="/blog/1"
+                        path={`/post/get/:id`}
                         element={
                             <MainLayout>
                                 <BlogDetail/>

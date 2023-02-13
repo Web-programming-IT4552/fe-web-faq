@@ -26,19 +26,10 @@ function Header(props) {
   useEffect(() => {
     (async () => {
       const profile = await getProfile();
-    //   console.log(profile.user)
-     setName(profile.user.name)
-     
+      //   console.log(profile.user)
+      setName(profile.user.name);
     })();
   }, []);
-  const toSearchPage = (e) => {
-    console.log("event: ", e);
-    setSearchContent((prevCt) => (prevCt = e.target.value));
-    if (e.target.value && e.key === "Enter") {
-      expandSearchBox();
-      navigate("/search");
-    }
-  };
 
   useEffect(() => {
     (async () => {
@@ -46,13 +37,13 @@ function Header(props) {
     })();
   }, []);
 
-    const toSearchPage = (e) => {
-        setSearchContent((prevCt) => (prevCt = e.target.value));
-        if (e.target.value && e.key === "Enter") {
-            expandSearchBox();
-            navigate("/search", { state: searchContent });
-        }
-    };
+  const toSearchPage = (e) => {
+    setSearchContent((prevCt) => (prevCt = e.target.value));
+    if (e.target.value && e.key === "Enter") {
+      expandSearchBox();
+      navigate("/search", { state: searchContent });
+    }
+  };
 
   const handleLogout = () => {
     localStorage.removeItem("access_token");

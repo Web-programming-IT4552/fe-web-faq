@@ -69,7 +69,8 @@ const Homepage = () => {
                   title={p.title}
                   tags={["japanese", "share", "learning"]}
                   likes={12}
-                  views={p.views}
+                  views={p.views} 
+                  blogId={p.id}
                   comments={10}
                   bookmarked={true}
                   followed={24}/>)

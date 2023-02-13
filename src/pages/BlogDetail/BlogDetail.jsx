@@ -9,6 +9,7 @@ import Comment from "../../components/Comment/Comment";
 import SimilarPost from "../../components/SimilarPost/SimilarPost";
 import { useState, useEffect } from "react";
 import getBlog from "./../../service/blog";
+import { useParams } from "react-router-dom";
 
 const BlogDetail = () => {
   const [name, setName] = useState("");
@@ -17,16 +18,16 @@ const BlogDetail = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [comment, setComment] = useState("");
-
+  let { id } = useParams();
+  console.log(id)
   useEffect(() => {
     (async () => {
-      const profile = await getBlog();
+      const profile = await getBlog(id);
       //   console.log(profile.user)
       setName(profile.data.name);
       setTitle(profile.data.title);
       setContent(profile.data.content);
       setComment(profile.data.comment);
-      
     })();
   }, []);
   return (
