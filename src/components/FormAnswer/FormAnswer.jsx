@@ -47,7 +47,6 @@ const FormAnswer = (props) => {
                 }  else {
                     toast.success("Create comment success!")
                     console.log(result)
-
                     window.location.reload()
                 }
 

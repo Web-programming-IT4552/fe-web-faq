@@ -7,7 +7,7 @@ import Loader from "../../components/Loader/Loader";
 import {token} from "../../service/auth";
 import {toast} from "react-toastify";
 import {useLocation} from "react-router-dom";
-import parse from "html-dom-parser";
+import parse from "html-react-parser";
 // eslint-disable-next-line import/no-anonymous-default-export
 export default function () {
   const { state } = useLocation();
